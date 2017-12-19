@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="manifest" href="{{base_path}}/assets/manifest.webapp">
+    <link rel="shortcut icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+    <link rel="icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+
     <title>
       {% block title %}
-        Tietokantasovellus
+        HunajaPurkki
       {% endblock %}
     </title>
 
@@ -26,21 +30,35 @@
       <div class="container-fluid">
 
         <div class="navbar-header">
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- Sovelluksen nimi -->
-          <a class="navbar-brand" href="{{base_path}}">Tsoha Bootstrap</a>
+
+          <!-- Sovelluksen logo ja nimi -->
+          <img src="{{base_path}}/assets/images/icon.png" height="50" />
+          <a class="navbar-brand" href="{{base_path}}">HunajaPurkki</a>
+
         </div>
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
             <!-- Navigaation linkit -->
-            <li><a href="{{base_path}}">Etusivu</a></li>
+            <li><a href="{{base_path}}#">Tarha</a></li>
+            <li><a href="{{base_path}}#">Pesä</a></li>
+            <li><a href="{{base_path}}#">Emo</a></li>
+            <li><a href="{{base_path}}#">Tarkastukset</a></li>
           </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{base_path}}#"><span class="glyphicon glyphicon-user"></span> Luo tunnukset</a></li>
+            <li><a href="{{base_path}}#"><span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään</a></li>
+          </ul>
+
         </div>
       </div>
     </nav>
