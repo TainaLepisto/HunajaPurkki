@@ -6,7 +6,7 @@ Itsenäinen projekti itsevalitun aiheen mukaisesti. Toteutettu PHP:lla käyttäe
 
 HunajaPurkki on mehiläistarhaajien apuväline mehiläisten hoitoon. Sovellukseen tallennetaan tiedot pesistä ja niiden tarkastuksista. Sovellus on suunnattu suomalaisen mehiläistarhaajan käyttöön. Sovellus muistuttaa pesien tarkastuksista säännöllisin väliajoin ja pitää kirjaa myös mahdollisista taudeista. 
 
-[Sovelluksen dokumentaatio.](https://docs.google.com/document/d/e/2PACX-1vTdKMGEzHBtnPu6XXSRooXiBskhRjtaGAbW4xh-NafKLGG_Msr7JsnRenuJCpUqlafxcnR63M2lrzE5/pub)
+[Sovelluksen dokumentaatio Gitissä PDF](./doc/HunajaPurkki.pdf) ja [GoogleDrivessa](https://docs.google.com/document/d/e/2PACX-1vTdKMGEzHBtnPu6XXSRooXiBskhRjtaGAbW4xh-NafKLGG_Msr7JsnRenuJCpUqlafxcnR63M2lrzE5/pub)
 
 ## Projektista
 
