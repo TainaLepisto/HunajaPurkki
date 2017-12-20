@@ -4,7 +4,7 @@
   "launch_path": "/index.html",
   "description": "Mehiläistarhaajan apulainen",
   "icons": {
-    "128": "/images/touch/icon.png"
+    "128": "assets/images/icon.png"
   },
   "developer": {
     "name": "Taina Lepistö",
