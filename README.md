@@ -42,15 +42,17 @@ Siinä sovellus jaetaan kolmeen osaan:
 ### Viikko 1
 - [x] Valitse harjoitustyösi aihe
 - [x] Pystytä versionhallinta
-- [ ] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon (johdanto, käyttötapaukset)](./doc/HunajaPurkki.pdf)
+- [ ] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
+  - [x] Johdanto
+  - [ ] Käyttötapaukset
 - [x] Pystytä työympäristö
 - [x] Rekisteröidy labtooliin
 
 ### Viikko 2
-- [ ] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
-  - [ ] Suunnittele etusivu
-  - [ ] Suunnittele kaikki listaussivut
-  - [ ] Suunnittele kaikki muokkaus- ja esittelysivut
+- [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
+  - [x] Suunnittele [etusivu (kirjautumisen jälkeen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/login)
+  - [x] Suunnittele kaikki listaussivut
+  - [x] Suunnittele kaikki muokkaus- ja esittelysivut
 - [ ] Ota tietokanta käyttöön ja dokumentoi se
   - [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
   - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.

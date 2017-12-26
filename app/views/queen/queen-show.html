@@ -5,17 +5,32 @@
   <div class="container">
     <div class="row ">
 
-      <div class="col-sm-4">
+      <div class="col-sm-6">
 
-        <h1>Mökkimetsän hunajatarha</h1>
+        <h1>Sininen pörröpää</h1>
 
         <p>
-          Laukaan mökkimetsissä olevat pesät.
+          Suhteellisen lempeä kuningatar ja hyvin tuottaa hunajaa.
         </p>
+
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>Emon väri (syntymävuosi)</td>
+              <td>Sininen</td>
+            </tr>
+            <tr>
+              <td>Kotipesä</td>
+              <td><a href="{{base_path}}/apiary/1" class="btn btn-outline-dark">Mökkimetsän hunajatarhan pesä nro 1</button></td>
+            </tr>
+
+          </tbody>
+        </table>
 
         <p>
           <button class="btn btn-danger">Poista</button>
-          <a href="{{base_path}}/hive/1/edit" class="btn btn-warning">Muokkaa</a>
+          <a href="{{base_path}}/queen/1/edit" class="btn btn-warning">Muokkaa</a>
+          <a href="{{base_path}}/queen/1/inspection" class="btn btn-info">Tarkasta emo</a>
         </p>
 
       </div>
@@ -30,71 +45,73 @@
 
 
 
+  <h2>Emolle tehdyt tarkastukset</h2>
 
-    <h2>Tarhan mehiläispesät</h2>
+  <h3>Tarkastuspäivä 1.12.2017</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Tarkastustoimi</th>
+          <th>Tulos</th>
+        </tr>
+      </thead>
 
-    <div class="row">
+      <tbody>
+        <tr>
+          <td>Emo nähty</td>
+          <td>Kyllä</td>
+        </tr>
+        <tr>
+          <td>Ruokavarat</td>
+          <td>5 kg</td>
+        </tr>
+        <tr>
+          <td>Lisätty hunajalaatikko </td>
+          <td>Kyllä</td>
+        </tr>
+        <tr>
+          <td>Punkkeja pohjalla</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+    </p>
 
-      <div class="col-sm-4">
-        <div class="card border-warning">
+    <h3>Tarkastuspäivä 1.11.2017</h3>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Tarkastustoimi</th>
+            <th>Tulos</th>
+          </tr>
+        </thead>
 
-          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
-
-          <div class="card-body">
-            <h4 class="card-title">Lisää uusi pesä</h4>
-            <p class="card-text">Tarvitessasi uutta pesää, voit luoda sen tästä. </p>
-
-            <a href="{{base_path}}/apiary/new" class="btn btn-warning">Luo uusi pesä</a>
-
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="card border-warning">
-
-          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
-
-          <div class="card-body">
-            <h4 class="card-title">Mökkimetsän hunajapesä nro 1</h4>
-            <p class="card-text">Tämä on se lähimpänä mökkiä oleva.</p>
-
-            <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-warning">Tarkasta pesä</a>
-
-          </div>
-
-          <div class="card-footer">
-            <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="card border-warning">
-
-          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
-
-          <div class="card-body">
-            <h4 class="card-title">Mökkimetsän hunajapesä nro 2</h4>
-            <p class="card-text">Tämä on se lähimpänä rantaa oleva.</p>
-
-            <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-warning">Tarkasta pesä</a>
-
-          </div>
-
-          <div class="card-footer">
-            <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
-          </div>
-
-        </div>
-      </div>
+        <tbody>
+          <tr>
+            <td>Emo nähty</td>
+            <td>Ei</td>
+          </tr>
+          <tr>
+            <td>Ruokavarat</td>
+            <td>7 kg</td>
+          </tr>
+          <tr>
+            <td>Kerätty hunajalaatikko </td>
+            <td>Kyllä</td>
+          </tr>
+          <tr>
+            <td>Punkkeja pohjalla</td>
+            <td>6</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+      </p>
 
 
-    </div>
 
 
 

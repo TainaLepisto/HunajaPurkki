@@ -91,6 +91,10 @@
     QueenController::inspection();
   });
 
+  $routes->get('/queen/1/inspectionform', function() {
+    QueenController::inspectionForm();
+  });
+
 // Tarkastuksiin (inspection) liittyvät reitit
   $routes->get('/inspection', function() {
     InspectionController::listAll();

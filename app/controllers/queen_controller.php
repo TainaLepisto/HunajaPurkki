@@ -33,4 +33,8 @@
        View::make('queen/queen-inspection.html');
      }
 
+     public static function inspectionForm(){
+       View::make('queen/queen-inspection-form.html');
+     }
+
   }

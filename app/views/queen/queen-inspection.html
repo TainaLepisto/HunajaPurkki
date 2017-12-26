@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Lisää tarkastus emolle: Sininen pörröpää</h1>
+
+  <form>
+
+    <div class="form-group">
+       <label for="selectInspections">Mitkä tarkastukset haluat suorittaa?</label>
+       <select multiple class="form-control" id="selectInspections">
+         <option>Kevään tarkastus</option>
+         <option>Syystarkastus</option>
+         <option>Punkkitilanne</option>
+         <option>Hunajasadon keräys</option>
+       </select>
+     </div>
+
+    <div class="form-group">
+      <a href="{{base_path}}/queen/1" class="btn btn-warning">Peruuta ja siirry emon tietoihin</a>
+
+      <a href="{{base_path}}/queen/1/inspectionform" class="btn btn-success">Avaa tarkastuslomake</a>
+      <!-- tämä on sitten oikea nappi kun formi toimii
+      <button type="submit" class="btn btn-success">Avaa tarkastuslomake</button>
+    -->
+    </div>
+
+
+  </form>
+
+{% endblock %}
