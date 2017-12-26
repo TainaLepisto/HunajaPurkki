@@ -2,7 +2,8 @@
 
 HunajaPurkki on mehiläistarhaajien apuväline mehiläisten hoitoon. Sovellukseen tallennetaan tiedot pesistä ja niiden tarkastuksista. Sovellus on suunnattu suomalaisen mehiläistarhaajan käyttöön. Sovellus muistuttaa pesien tarkastuksista säännöllisin väliajoin ja pitää kirjaa myös mahdollisista taudeista.
 
-[Sovelluksen dokumentaatio Gitissä, PDF](./doc/HunajaPurkki.pdf)
+[Sovelluksen dokumentaatio Gitissä](./doc/HunajaPurkki.pdf)
+
 [Sovellus julkaistu laitoksen user-palvelimelle](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
 
 ## Projektista
@@ -15,7 +16,7 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 ### TechStack
 
- -HTML([lyhenne sanoista Hypertext Markup Language, suomennettuna hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
+ - HTML([lyhenne sanoista Hypertext Markup Language, suomennettuna hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
 - PHP ([PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages](https://www.w3schools.com/php/))
 - PostgreSQL ([powerful, open source object-relational database system](http://www.tutorialspoint.com/postgresql/index.htm))
 - SQL ()
@@ -47,12 +48,12 @@ Siinä sovellus jaetaan kolmeen osaan:
 
 ### Viikko 2
 - [ ] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut. [(Sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen.)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/))
--- [ ] Suunnittele etusivu
--- [ ] Suunnittele kaikki listaussivut
--- [ ] Suunnittele kaikki muokkaus- ja esittelysivut
+ - [ ] Suunnittele etusivu
+ - [ ] Suunnittele kaikki listaussivut
+ - [ ] Suunnittele kaikki muokkaus- ja esittelysivut
 - [ ] Ota tietokanta käyttöön ja dokumentoi se
--- [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
--- [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
--- [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
--- [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
+ - [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+ - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
+ - [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
+ - [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
 - [ ] Pushaa kaikki tekemäsi muutokset Gittiin
