@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Tervetuloa HunajaPurkkiin!</h1>
+  </div>
+
+
+  <div class="form-signin-container">
+
+        <form class="form-signin">
+          <h2 class="form-signin-heading">Luo itsellesi tunnukset</h2>
+          <label for="inputEmail" class="sr-only">Sähköposti</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="joku@oma.fi" required="" autofocus="">
+          <label for="inputPassword" class="sr-only">Salasana</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="xxxxxx" required="">
+          <label for="inputPassword2" class="sr-only">Salasana uudestaan</label>
+          <input type="password" id="inputPassword2" class="form-control" placeholder="xxxxxx" required="">
+
+          <button class="btn btn-lg btn-warning btn-block" type="submit"><span class="glyphicon glyphicon-log-in"></span>Luo tunnukset</button>
+        </form>
+
+
+  </div>
+
+
+
+
+
+{% endblock %}

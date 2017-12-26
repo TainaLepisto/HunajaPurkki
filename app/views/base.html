@@ -5,9 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="{{base_path}}/assets/manifest.json">
+
     <link rel="manifest" href="{{base_path}}/assets/manifest.webapp">
     <link rel="shortcut icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
     <link rel="icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="HunajaPurkki">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="HunajaPurkki">
+    <link rel="apple-touch-icon" href="{{base_path}}/assets/images/icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{{base_path}}/assets/images/icon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
 
     <title>
       {% block title %}
@@ -40,23 +57,17 @@
 
           <!-- Sovelluksen logo ja nimi -->
           <img src="{{base_path}}/assets/images/icon.png" height="50" />
-          <a class="navbar-brand" href="{{base_path}}">HunajaPurkki</a>
+          <a class="navbar-brand" href="{{base_path}}/login">HunajaPurkki</a>
 
         </div>
 
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav">
             <!-- Navigaation linkit -->
-            <li><a href="{{base_path}}#">Tarha</a></li>
-            <li><a href="{{base_path}}#">Pesä</a></li>
-            <li><a href="{{base_path}}#">Emo</a></li>
-            <li><a href="{{base_path}}#">Tarkastukset</a></li>
-          </ul>
-
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{base_path}}#"><span class="glyphicon glyphicon-user"></span> Luo tunnukset</a></li>
-            <li><a href="{{base_path}}#"><span class="glyphicon glyphicon-log-in"></span> Kirjaudu sisään</a></li>
+            <li><a href="{{base_path}}/hive">Tarha</a></li>
+            <li><a href="{{base_path}}/apiary">Pesä</a></li>
+            <li><a href="{{base_path}}/queen">Emo</a></li>
+            <li><a href="{{base_path}}/inspection">Tarkastuslomakkeet</a></li>
           </ul>
 
         </div>

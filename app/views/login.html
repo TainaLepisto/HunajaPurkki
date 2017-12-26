@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Tervetuloa HunajaPurkkiin!</h1>
+
+  <div class="row">
+
+    <div class="col-sm-3">
+      <div class="card border-warning">
+        <div class="card-body">
+          <a href="{{base_path}}/hive/new" class="btn btn-lg btn-success btn-block">Luo uusi tarha</a>
+          <a href="{{base_path}}/apiary/new" class="btn btn-lg btn-success btn-block">Luo uusi pesä</a>
+          <a href="{{base_path}}/queen/new" class="btn btn-lg btn-success btn-block">Luo uusi emo</a>
+          <a href="{{base_path}}/inspection/new" class="btn btn-lg btn-success btn-block">Luo uusi tarkastuslomake</a>
+          <a href="{{base_path}}/reminder/new" class="btn btn-lg btn-success btn-block">Luo uusi muistutus</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Tarkastus tulossa 1.1.2018</h4>
+          <p class="card-text">Mökkimetsän hunajapesä nro 1.</p>
+
+          <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
+          <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+          <a href="#" class="btn btn-success" role="button">Kuittaa muistutus tehdyksi</a>
+
+        </div>
+
+        <div class="card-footer">
+          <p>
+            <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
+            <br/>
+            <small class="text-muted">Mökkimetsän hunajatarha</small>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Tarkastus tulossa 1.2.2018</h4>
+          <p class="card-text">Mökkimetsän hunajapesä nro 2</p>
+
+          <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
+          <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+          <a href="#" class="btn btn-success" role="button">Kuittaa muistutus tehdyksi</a>
+
+        </div>
+
+        <div class="card-footer">
+          <p>
+            <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
+            <br>
+            <small class="text-muted">Mökkimetsän hunajatarha</small>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+{% endblock %}
