@@ -47,13 +47,13 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Rekisteröidy labtooliin
 
 ### Viikko 2
-- [ ] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut. [(Sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen.)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/))
- - [ ] Suunnittele etusivu
- - [ ] Suunnittele kaikki listaussivut
- - [ ] Suunnittele kaikki muokkaus- ja esittelysivut
+- [ ] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
+  - [ ] Suunnittele etusivu
+  - [ ] Suunnittele kaikki listaussivut
+  - [ ] Suunnittele kaikki muokkaus- ja esittelysivut
 - [ ] Ota tietokanta käyttöön ja dokumentoi se
- - [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
- - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
- - [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
- - [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
+  - [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+  - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
+  - [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
+  - [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
 - [ ] Pushaa kaikki tekemäsi muutokset Gittiin
