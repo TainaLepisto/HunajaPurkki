@@ -51,7 +51,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 ### Viikko 2
 - [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii pääosin, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
   - [x] Suunnittele [etusivu (kirjautumisen jälkeen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/login)
-  - [x] Suunnittele kaikki listaussivut (Rikoin heti tarhan näkymät, joten tässä ne. [tarhojen listaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticlist)), [yhden tarhan näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticshow)), [muokkaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticedit)
+  - [x] Suunnittele kaikki listaussivut (Rikoin heti tarhan näkymät, joten tässä ne. [tarhojen listaus näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticlist), [yhden tarhan näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticshow), [tarhan tietojen muokkaus näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticedit)
   - [ ] Suunnittele kaikki muokkaus- ja esittelysivut (pääosin tehty - tarkastuslomakkeiden vielä kesken)
 - [x] Ota tietokanta käyttöön ja dokumentoi se
   - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
