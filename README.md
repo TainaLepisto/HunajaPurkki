@@ -19,12 +19,12 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
  - HTML([lyhenne sanoista Hypertext Markup Language, suomennettuna hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
 - PHP ([PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages](https://www.w3schools.com/php/))
 - PostgreSQL ([powerful, open source object-relational database system](http://www.tutorialspoint.com/postgresql/index.htm))
-- SQL ()
+- SQL ([]())
 - Bootstrap ([open source toolkit for developing with HTML, CSS, and JS](http://getbootstrap.com/))
 - Slim framework ([Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs](https://www.slimframework.com/))
 - Kint ([modern and powerful PHP debugging helper](https://kint-php.github.io/kint/))
 - Composer ([Dependency Manager for PHP](https://getcomposer.org/))
-
+- PHP Data Objects (PDO) ([lightweight, consistent interface for accessing databases in PHP](http://php.net/manual/en/intro.pdo.php))
 
 ### MVC-malli (model-view-controller)
 
@@ -51,16 +51,22 @@ Siinä sovellus jaetaan kolmeen osaan:
 ### Viikko 2
 - [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii pääosin, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
   - [x] Suunnittele [etusivu (kirjautumisen jälkeen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/login)
-  - [x] Suunnittele kaikki listaussivut (esim. [tarhan listaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/hive/1))
+  - [x] Suunnittele kaikki listaussivut (Rikoin heti tarhan näkymät, joten tässä ne. [tarhojen listaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticlist)), [yhden tarhan näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticshow)), [muokkaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticedit)
   - [ ] Suunnittele kaikki muokkaus- ja esittelysivut (pääosin tehty - tarkastuslomakkeiden vielä kesken)
 - [x] Ota tietokanta käyttöön ja dokumentoi se
   - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
-  - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql-tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
-  - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql-tiedostoon](./sql/drop_tables.sql).
-  - [x] Lisää testidatan lisäyslauseet [add_test_data.sql-tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
+  - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql -tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
+  - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql -tiedostoon](./sql/drop_tables.sql).
+  - [x] Lisää testidatan lisäyslauseet [add_test_data.sql -tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
 - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
+- [ ] Toteuta sovellukseesi vähintään yksi malliluokka, jossa on kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all), tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find) ja tietokohteen olion tietokantaan lisäävä metodi (esim. save).
+- [ ] Toteuta malliasi käyttämään kontrolleriin metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [ ] Kirjoita koodikatselmointi
+- [ ] Pushaa kaikki muutokset
+
+### Viikko 4
 .
 .
 .

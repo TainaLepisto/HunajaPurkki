@@ -4,12 +4,12 @@
 
     public static function listAll(){
 
-      // $hives = Hive::all();
+      $hives = Hive::all();
       // Kint-luokan dump-metodi tulostaa muuttujan arvon
-      // Kint::dump($hives);
+      //Kint::dump($hives);
 
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-   	  View::make('hive/hive-list.html');
+   	  View::make('hive/hive-list.html', array('hives' => $hives));
     }
 
     public static function create(){
@@ -17,17 +17,28 @@
       View::make('hive/hive-new.html');
     }
 
-     public static function show(){
+     public static function show($id){
+       $hive = Hive::find($id);
+       $apiarysOfHive = Apiary::apiarysOfHive($id);
 
-       // $hive = Hive::find(1);
-       // Kint::dump($hive);
-
-       View::make('hive/hive-show.html');
+       View::make('hive/hive-show.html', array('hive' => $hive, 'apiarys' => $apiarysOfHive));
      }
 
      public static function edit(){
        View::make('hive/hive-edit.html');
      }
+
+
+// staattiset opelle
+     public static function staticlist(){
+       View::make('hive/hive-static-list.html');
+     }
+     public static function staticshow(){
+      View::make('hive/hive-static-show.html');
+    }
+    public static function staticedit(){
+       View::make('hive/hive-static-edit.html');
+    }
 
 
   }

@@ -31,18 +31,24 @@
     HiveController::create();
   });
 
-// TODO: kaikki nää kovakoodatut 1 arvot -> $id
-  //$routes->get('/hive/:id', function($id) {
-  //  HiveController::show($id);
-  //});
-
-  $routes->get('/hive/1', function() {
-    HiveController::show();
+  $routes->get('/hive/:id', function($id) {
+    HiveController::show($id);
   });
 
   $routes->get('/hive/1/edit', function() {
     HiveController::edit();
   });
+
+// staattiset opelle staticlist
+$routes->get('/staticlist', function() {
+  HiveController::staticlist();
+});
+$routes->get('/staticshow', function() {
+  HiveController::staticshow();
+});
+$routes->get('/staticedit', function() {
+  HiveController::staticedit();
+});
 
 
 // Pesään (APIARY) liittyvät reitit
