@@ -44,20 +44,20 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Pystytä versionhallinta
 - [ ] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
   - [x] Johdanto
-  - [ ] Käyttötapaukset
+  - [ ] Käyttötapaukset (pääosin tehty - puuttuu vielä tekstikuvaukset)
 - [x] Pystytä työympäristö
 - [x] Rekisteröidy labtooliin
 
 ### Viikko 2
-- [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
+- [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii pääosin, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
   - [x] Suunnittele [etusivu (kirjautumisen jälkeen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/login)
-  - [x] Suunnittele kaikki listaussivut
-  - [x] Suunnittele kaikki muokkaus- ja esittelysivut
-- [ ] Ota tietokanta käyttöön ja dokumentoi se
-  - [x] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
-  - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
-  - [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
-  - [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
+  - [x] Suunnittele kaikki listaussivut (esim. [tarhan listaus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/hive/1))
+  - [ ] Suunnittele kaikki muokkaus- ja esittelysivut (pääosin tehty - tarkastuslomakkeiden vielä kesken)
+- [x] Ota tietokanta käyttöön ja dokumentoi se
+  - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+  - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql-tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
+  - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql-tiedostoon](./sql/drop_tables.sql).
+  - [x] Lisää testidatan lisäyslauseet [add_test_data.sql-tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
 - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
