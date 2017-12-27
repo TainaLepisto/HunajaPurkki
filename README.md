@@ -54,8 +54,13 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] Suunnittele kaikki listaussivut
   - [x] Suunnittele kaikki muokkaus- ja esittelysivut
 - [ ] Ota tietokanta käyttöön ja dokumentoi se
-  - [ ] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+  - [x] Lisää dokumentaatioon järjestelmän tietosisältö osio ja relaatiotietokantakaavio
   - [ ] Lisää tietokantataulujen pystytyslauseet create_tables.sql-tiedostoon. Pystytä näillä taulut tietokantaan.
   - [ ] Lisää tietokantataulujen poistolauseet drop_tables.sql-tiedostoon
   - [ ] Lisää testidatan lisäyslauseet add_test_data.sql-tiedostoon. Aja testidata tietokantaan.
-- [ ] Pushaa kaikki tekemäsi muutokset Gittiin
+- [x] Pushaa kaikki tekemäsi muutokset Gittiin
+
+### Viikko 3
+.
+.
+.
