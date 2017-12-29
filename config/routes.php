@@ -21,10 +21,18 @@
     HelloWorldController::createReminder();
   });
 
+// kannan testireitti
+  $routes->get('/tietokantayhteys', function(){
+    DB::test_connection();
+  });
 
 // Tarhaan (HIVE) liittyvät reitit
   $routes->get('/hive', function() {
     HiveController::listAll();
+  });
+
+  $routes->post('/hive', function(){
+    HiveController::saveNew();
   });
 
   $routes->get('/hive/new', function(){
@@ -35,20 +43,9 @@
     HiveController::show($id);
   });
 
-  $routes->get('/hive/1/edit', function() {
-    HiveController::edit();
+  $routes->get('/hive/:id/edit', function($id) {
+    HiveController::edit($id);
   });
-
-// staattiset opelle staticlist
-$routes->get('/staticlist', function() {
-  HiveController::staticlist();
-});
-$routes->get('/staticshow', function() {
-  HiveController::staticshow();
-});
-$routes->get('/staticedit', function() {
-  HiveController::staticedit();
-});
 
 
 // Pesään (APIARY) liittyvät reitit

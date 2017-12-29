@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Mehiläistarhat</h1>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Lisää uusi tarha</h4>
+          <p class="card-text">Tarvitessasi uutta tarhaa, voit luoda sen tästä. </p>
+
+          <a href="{{base_path}}/hive/new" class="btn btn-success">Luo uusi tarha</a>
+
+        </div>
+
+      </div>
+    </div>
+
+
+{% for hive in hives %}
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{hive.picture}}" alt="Kuva tarhasta">
+
+        <div class="card-body">
+          <h4 class="card-title">{{hive.name}}</h4>
+          <p class="card-text">{{hive.comments}}</p>
+
+          <a href="{{base_path}}/hive/{{hive.hiveID}}" class="btn btn-warning">Tarhan tiedot ja pesälistaus</a>
+
+        </div>
+
+        <div class="card-footer">
+          {% if hive.countApiarys>1 %}
+              <small class="text-muted">Tarhassa on {{hive.countApiarys}} pesää</small>
+          {% elseif hive.countApiarys==1 %}
+              <small class="text-muted">Tarhassa on 1 pesä</small>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+{% endfor %}
+
+
+
+  </div>
+
+
+
+
+{% endblock %}

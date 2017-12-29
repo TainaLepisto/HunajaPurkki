@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h1>Mehiläiskuningattaret</h1>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Lisää uusi emo</h4>
+          <p class="card-text">Tarvitessasi uutta emoa, voit luoda sen tästä. </p>
+
+          <a href="{{base_path}}/queen/new" class="btn btn-success">Luo uusi emo</a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Sininen pörröpää</h4>
+          <p class="card-text">Suhteellisen lempeä kuningatar ja hyvin tuottaa hunajaa.</p>
+
+          <a href="{{base_path}}/queen/1" class="btn btn-warning">Emon tiedot</a>
+          <a href="{{base_path}}/queen/1/inspection" class="btn btn-info">Tarkasta emo</a>
+
+        </div>
+
+        <div class="card-footer">
+          <small class="text-muted">Pesässä: Mökkimetsän hunajatarhan pesä nro 1</small>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Äkäinen punainen</h4>
+          <p class="card-text">Muista suojautua kunnolla, tämä pistää.</p>
+
+          <a href="{{base_path}}/queen/1" class="btn btn-warning">Emon tiedot</a>
+          <a href="{{base_path}}/queen/1/inspection" class="btn btn-info">Tarkasta emo</a>
+
+        </div>
+
+        <div class="card-footer">
+          <small class="text-muted">Pesässä: Mökkimetsän hunajatarhan pesä nro 2</small>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+{% endblock %}

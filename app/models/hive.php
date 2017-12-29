@@ -9,8 +9,16 @@
 
 
       public static function all(){
-        // TODO: alikysely countApiarys
-        $query = DB::connection()->prepare('SELECT * FROM hive');
+        $query = DB::connection()->prepare('
+          SELECT h.*, a.countapiarys
+          FROM hive
+          LEFT JOIN (
+            SELECT hiveid, count(*) as countapiarys
+            FROM apiary
+            WHERE hiveid = :id
+            GROUP BY hiveid
+          ) as a
+          ON h.hiveid = a.hiveid');
         $query->execute();
         $rows = $query->fetchAll();
         $hives = array();
@@ -23,7 +31,7 @@
             'picture' => $row['picture'],
             'location' => $row['location'],
             'comments' => $row['comments']
-//            'countApiarys' => $row['countapiarys']
+            'countApiarys' => $row['countapiarys']
           ));
         }
 
@@ -32,8 +40,17 @@
 
 
       public static function find($id){
-        // TODO: alikysely countApiarys
-         $query = DB::connection()->prepare('SELECT * FROM hive WHERE hiveid = :id LIMIT 1');
+         $query = DB::connection()->prepare('
+            SELECT h.*, a.countapiarys
+              FROM hive
+              LEFT JOIN (
+                SELECT hiveid, count(*) as countapiarys
+                FROM apiary
+                WHERE hiveid = :id
+                GROUP BY hiveid
+                ) as a
+              ON h.hiveid = a.hiveid
+              WHERE h.hiveid = :id LIMIT 1');
          $query->execute(array('id' => $id));
          $row = $query->fetch();
 
@@ -45,7 +62,7 @@
              'picture' => $row['picture'],
              'location' => $row['location'],
              'comments' => $row['comments']
-//             'countApiarys' => $row['countApiarys']
+             'countApiarys' => $row['countapiarys']
            ));
 
            return $hive;
@@ -54,5 +71,15 @@
          return null;
        }
 
+
+       public function save(){
+         // MUISTA RETURNING! 
+          $query = DB::connection()->prepare('INSERT INTO hive (name, picture, location, comments) VALUES (:name, :picture, :location, :comments) RETURNING hiveid');
+          // HUOM! syntaksi $olio->kenttä
+          $query->execute(array('name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+          // napataan talteen olioomme luotu ID tunnus
+          $row = $query->fetch();
+          $this->hiveID = $row['hiveid'];
+        }
 
 }

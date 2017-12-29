@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Tervetuloa HunajaPurkkiin!</h1>
+  </div>
+
+
+  <div class="form-signin-container">
+
+        <form class="form-signin">
+          <h2 class="form-signin-heading">Sisäänkirjautuminen</h2>
+          <label for="inputEmail" class="sr-only">Sähköposti</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="joku@oma.fi" required="" autofocus="">
+          <label for="inputPassword" class="sr-only">Salasana</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="xxxxxx" required="">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="remember-me"> Muista minut
+            </label>
+          </div>
+
+          <a href="{{base_path}}/login" class="btn btn-lg btn-warning btn-block"><span class="glyphicon glyphicon-log-in"></span>Kirjaudu sisään</a>
+
+<!-- tämä on sitten oikea nappi kun formi toimii
+          <button class="btn btn-lg btn-warning btn-block" type="submit">
+              <span class="glyphicon glyphicon-log-in"></span>
+                Kirjaudu sisään
+          </button>
+-->
+
+        </form>
+
+        <p>
+          <br/>
+          <a href="{{base_path}}/createLogin"><span class="glyphicon glyphicon-user"></span> Luo tunnukset</a>
+          <br/>
+        </p>
+
+  </div>
+
+</br></br>
+
+    <h2>Lisää HunajaPurkki puhelimesi appseihin</h2>
+
+    <ul>
+
+      <li><strong>iPhone / iPad:</strong>
+          <ul>
+            <li>1. Paina selaimesta Jaa-symbolia</li>
+            <li>2. Valitse "Lisää Kotiin"</li>
+          </ul>
+      </li>
+
+      <li><strong>Android:</strong>
+          <ul>
+            <li>1. Paina selaimesta asetukset-painiketta</li>
+            <li>2. "Kiinnitä aloitusruutuun" tai "Lisää pikanäppäin"</li>
+          </ul>
+      </li>
+
+      <li><strong>Windows phone:</strong>
+          <ul>
+            <li>1. Paina selaimesta     - painiketta</li>
+            <li>2. "Kiinnitä aloitusnäyttöön"</li>
+          </ul>
+      </li>
+
+    </ul>
+
+
+
+
+{% endblock %}

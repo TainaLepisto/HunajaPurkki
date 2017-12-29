@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="{{base_path}}/assets/manifest.json">
+
+    <link rel="manifest" href="{{base_path}}/assets/manifest.webapp">
+    <link rel="shortcut icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+    <link rel="icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="HunajaPurkki">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="HunajaPurkki">
+    <link rel="apple-touch-icon" href="{{base_path}}/assets/images/icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{{base_path}}/assets/images/icon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+
+    <title>
+      {% block title %}
+        HunajaPurkki
+      {% endblock %}
+    </title>
+
+    {% block head %}
+      <!-- Bootstrap (tyylitiedosto) -->
+      <link href="{{base_path}}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Oma tyylitiedostomme -->
+      <link href="{{base_path}}/assets/css/site.css" rel="stylesheet">
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- Sovelluksen logo ja nimi -->
+          <img src="{{base_path}}/assets/images/icon.png" height="50" />
+          <a class="navbar-brand" href="{{base_path}}/login">HunajaPurkki</a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="nav navbar-nav">
+            <!-- Navigaation linkit -->
+            <li><a href="{{base_path}}/hive">Tarha</a></li>
+            <li><a href="{{base_path}}/apiary">Pesä</a></li>
+            <li><a href="{{base_path}}/queen">Emo</a></li>
+            <li><a href="{{base_path}}/inspection">Tarkastuslomakkeet</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <div id="main-container">
+      <!-- Dynaaminen sisältö tulee tähän -->
+      {% block content %}{% endblock %}
+    </div>
+
+    {% block body %}
+      <!-- jQuery -->
+      <script src="{{base_path}}/assets/js/jquery.min.js"></script>
+
+      <!-- Bootstrap (skriptitiedosto) -->
+      <script src="{{base_path}}/assets/bootstrap/js/bootstrap.min.js"></script>
+
+      <!-- Oma skriptitiedostomme -->
+      <script src="{{base_path}}/assets/js/site.js"></script>
+    {% endblock %}
+  </body>
+</html>

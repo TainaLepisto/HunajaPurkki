@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row ">
 
-      <div class="col-sm-6">
+      <div class="col-sm-4">
 
         <h1>Mökkimetsän hunajatarha</h1>
 
@@ -16,7 +16,6 @@
         <p>
           <button class="btn btn-danger">Poista</button>
           <a href="{{base_path}}/hive/1/edit" class="btn btn-warning">Muokkaa</a>
-          <a href="{{base_path}}/apiary/new" class="btn btn-success">Luo tarhaan uusi pesä</a>
         </p>
 
       </div>
@@ -29,9 +28,28 @@
   </div>
 
 
+
+
+
     <h2>Tarhan mehiläispesät</h2>
 
     <div class="row">
+
+      <div class="col-sm-4">
+        <div class="card border-warning">
+
+          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+          <div class="card-body">
+            <h4 class="card-title">Lisää uusi pesä</h4>
+            <p class="card-text">Tarvitessasi uutta pesää, voit luoda sen tästä. </p>
+
+            <a href="{{base_path}}/apiary/new" class="btn btn-warning">Luo uusi pesä</a>
+
+          </div>
+
+        </div>
+      </div>
 
       <div class="col-sm-4">
         <div class="card border-warning">
@@ -43,13 +61,12 @@
             <p class="card-text">Tämä on se lähimpänä mökkiä oleva.</p>
 
             <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-warning">Tarkasta pesä</a>
 
           </div>
 
           <div class="card-footer">
             <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
-            <br/>
           </div>
 
         </div>
@@ -65,13 +82,12 @@
             <p class="card-text">Tämä on se lähimpänä rantaa oleva.</p>
 
             <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+            <a href="{{base_path}}/apiary/1/inspection" class="btn btn-warning">Tarkasta pesä</a>
 
           </div>
 
           <div class="card-footer">
             <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
-            <br/>
           </div>
 
         </div>

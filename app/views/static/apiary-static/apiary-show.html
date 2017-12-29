@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+  <div class="row ">
+
+    <div class="col-sm-6">
+
+      <h1>Mökkimetsän hunajapesä nro 1</h1>
+
+      <p>
+        Tämä on se lähimpänä mökkiä oleva.
+      </p>
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>Tarha</th>
+            <td><a href="{{base_path}}/hive/1" class="btn btn-outline-dark">Mökkimetsän hunajatarha</a></td>
+          </tr>
+          <tr>
+            <th>Emo</th>
+            <td><a href="{{base_path}}/queen/1" class="btn btn-outline-dark">Sininen pörröpää</a></td>
+          </tr>
+          <tr>
+            <th>Sijainti</th>
+            <td><a href="#" class="btn btn-outline-dark" target="_blank">40.741895,-73.989308</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <button class="btn btn-danger">Poista</button>
+        <a href="{{base_path}}/apiary/1/edit" class="btn btn-warning">Muokkaa</a>
+        <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+      </p>
+
+    </div>
+
+    <div class="col-sm-4">
+         <img src="{{base_path}}/assets/images/icon.png" >
+    </div>
+
+  </div>
+</div>
+
+<h2>Pesään tehdyt tarkastukset</h2>
+
+<h3>Tarkastuspäivä 1.12.2017</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Tarkastustoimi</th>
+        <th>Tulos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Emo nähty</td>
+        <td>Kyllä</td>
+      </tr>
+      <tr>
+        <td>Ruokavarat</td>
+        <td>5 kg</td>
+      </tr>
+      <tr>
+        <td>Lisätty hunajalaatikko </td>
+        <td>Kyllä</td>
+      </tr>
+      <tr>
+        <td>Punkkeja pohjalla</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+  </p>
+
+  <h3>Tarkastuspäivä 1.11.2017</h3>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Tarkastustoimi</th>
+          <th>Tulos</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Emo nähty</td>
+          <td>Ei</td>
+        </tr>
+        <tr>
+          <td>Ruokavarat</td>
+          <td>7 kg</td>
+        </tr>
+        <tr>
+          <td>Kerätty hunajalaatikko </td>
+          <td>Kyllä</td>
+        </tr>
+        <tr>
+          <td>Punkkeja pohjalla</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+    </p>
+
+
+
+{% endblock %}

@@ -31,11 +31,10 @@
   $routes = new \Slim\Slim();
   $routes->add(new \Zeuxisoo\Whoops\Provider\Slim\WhoopsMiddleware);
 
-  $routes->get('/tietokantayhteys', function(){
-    DB::test_connection();
-  });
-
   // Otetaan reitit käyttöön
   require 'config/routes.php';
+
+  // staattiset reitit on omassaan
+  require 'config/routes-static.php';
 
   $routes->run();

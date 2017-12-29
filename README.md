@@ -8,7 +8,7 @@ HunajaPurkki on mehiläistarhaajien apuväline mehiläisten hoitoon. Sovelluksee
 
 ## Projektista
 
-Itsenäinen projekti itsevalitun aiheen mukaisesti. Toteutettu PHP:lla käyttäen PostgreSQL-tietokantapalvelinta. . Käyttäjän selaimen tulee tukea JavaScriptiä.
+Itsenäinen projekti itsevalitun aiheen mukaisesti. Toteutettu PHP:lla käyttäen PostgreSQL-tietokantapalvelinta. Käyttäjän selaimen tulee tukea JavaScriptiä.
 
 [Tietokantasovellus on tietojenkäsittelytieteen aineopintojen harjoitustyökurssi](http://tsoha.github.io/), jossa harjoitellaan tietokantaohjelmointia käytännössä ja opitaan samalla web-sovellusohjelmointia.
 
@@ -16,10 +16,10 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 ### TechStack
 
- - HTML([lyhenne sanoista Hypertext Markup Language, suomennettuna hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
+- HTML([Hypertext Markup Language, eli hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
 - PHP ([PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages](https://www.w3schools.com/php/))
 - PostgreSQL ([powerful, open source object-relational database system](http://www.tutorialspoint.com/postgresql/index.htm))
-- SQL ([]())
+- SQL ([Structured Query Language, lets you access and manipulate databases](https://www.w3schools.com/sql/sql_intro.asp))
 - Bootstrap ([open source toolkit for developing with HTML, CSS, and JS](http://getbootstrap.com/))
 - Slim framework ([Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs](https://www.slimframework.com/))
 - Kint ([modern and powerful PHP debugging helper](https://kint-php.github.io/kint/))
@@ -35,7 +35,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 - näkymään (view), joka määrittää sovelluksen käyttöliittymän ulkoasun ja tiedon esitysmuodon. Sen kautta lähetään myös käyttäjän syöttämiä tietoja sovellukselle esimerkiksi lomakkeiden kautta.
 - kontrolleriin (controller), joka toimii liimana näkymän ja mallin välissä. Se käsittelee selaimen lähettämät pyynnöt, välittää mallilta saamansa sisällön näkymälle tai pyytää mallia tekemään muutoksia tietokantaan.
 
-(kopioitu kurssisivulta)
+(kuvaus kopioitu kurssisivulta)
 
 ## Eteneminen
 
@@ -49,24 +49,67 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Rekisteröidy labtooliin
 
 ### Viikko 2
-- [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut [(sovelluksen navigaatio toimii pääosin, joten en listaa tänne kaikkia linkkejä erikseen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
-  - [x] Suunnittele [etusivu (kirjautumisen jälkeen)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/login)
-  - [x] Suunnittele kaikki listaussivut (Rikoin heti tarhan näkymät, joten tässä ne. [tarhojen listaus näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticlist), [yhden tarhan näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticshow), [tarhan tietojen muokkaus näkymä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/staticedit)
-  - [ ] Suunnittele kaikki muokkaus- ja esittelysivut (pääosin tehty - tarkastuslomakkeiden vielä kesken)
-- [x] Ota tietokanta käyttöön ja dokumentoi se
-  - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
-  - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql -tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
-  - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql -tiedostoon](./sql/drop_tables.sql).
-  - [x] Lisää testidatan lisäyslauseet [add_test_data.sql -tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
-- [x] Pushaa kaikki tekemäsi muutokset Gittiin
+- [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut
+  - [x] Suunnittele etusivu
+    - [tunnusten luonti](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/signup)
+    - [kirjautuminen](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/home)
+    - [kirjautumisen jälkeen](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/login)
+  - [x] Suunnittele kaikki listaussivut
+    - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/list)
+    - [pesä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/list)
+      - [pesän tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspectionForm)
+      - [pesän tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspection)
+    - [emo](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/list)
+      - [emon tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspectionForm)
+      - [emon tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspection)
+    - [tarkastuslomakkeet](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/inspection/list)
+  - [ ] Suunnittele kaikki muokkaussivut
+    - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/edit)
+    - [pesä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/edit)
+    - [emo](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/edit)
+    - tarkastuslomakkeet - KESKEN
+  - [x] Suunnittele kaikki esittelysivut
+    - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/show)
+    - [pesä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/show)
+    - [emo](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/show)
+    - [tarkastuslomakkeet](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/inspection/show)
+  - [ ] Suunnittele kaikki luontisivut
+    - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/new)
+    - [pesä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/new)
+    - [emo](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/new)
+    - [muistutus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/reminder/new)
+    - tarkastuslomakkeet - KESKEN
+  - [x] Ota tietokanta käyttöön ja dokumentoi se
+    - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+    - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql -tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
+    - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql -tiedostoon](./sql/drop_tables.sql).
+    - [x] Lisää testidatan lisäyslauseet [add_test_data.sql -tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
+  - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
-- [ ] Toteuta sovellukseesi vähintään yksi malliluokka, jossa on kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all), tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find) ja tietokohteen olion tietokantaan lisäävä metodi (esim. save).
-- [ ] Toteuta malliasi käyttämään kontrolleriin metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [x] Toteuta sovellukseesi vähintään yksi malliluokka, jossa on
+  - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
+  - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
+  - [x] tietokohteen olion tietokantaan lisäävä metodi (esim. save)
+- [x] Toteuta malliasi käyttämään kontrolleriin metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
 - [ ] Kirjoita koodikatselmointi
 - [ ] Pushaa kaikki muutokset
 
 ### Viikko 4
+- [ ] Lisää malliluokkaasi metodi ja käyttäjälle toiminnot tietokohteen olion
+  - [ ] muokkaamiselle (esim. update)
+  - [ ] poistolle (esim. destroy)
+- [ ] Lisää malliisi tarvittavat validaattorit ja estä kontrollereissa virheellisten syötteiden lisääminen tietokantaan.
+  - [ ] näytä lomakkeissa virhetilanteissa virheilmoitukset
+  - [ ] täytä kentät käyttäjän antamilla syötteillä
+- [ ] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
+  - [ ] Toteuta get_user_logged_in-metodi
+  - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
+- [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
+- [ ] käyttäjätunnus ja salasana, jolla voi kirjautua sisään sovellukseesi
+- [ ] Pushaa kaikki tekämäsi muutokset repoosi
+
+### Viikko 5
 .
 .
 .
