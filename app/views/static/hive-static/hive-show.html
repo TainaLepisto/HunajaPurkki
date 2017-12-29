@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "static/base-static.html" %}
 {% block content %}
 
 
@@ -7,28 +7,22 @@
 
       <div class="col-sm-6">
 
-        {% if message %}
-        <div class="alert alert-success">
-            {{message}}
-        </div>
-        {% endif %}
-
-        <h1>{{hive.name}}</h1>
+        <h1>Mökkimetsän hunajatarha</h1>
 
         <p>
-          {{hive.comments}}
+          Laukaan mökkimetsissä olevat pesät.
         </p>
 
         <p>
           <button class="btn btn-danger">Poista</button>
-          <a href="{{base_path}}/hive/{{hive.hiveID}}/edit" class="btn btn-warning">Muokkaa</a>
-          <a href="{{base_path}}/apiary/new" class="btn btn-success">Luo tarhaan uusi pesä</a>
+          <a href="#" class="btn btn-warning">Muokkaa</a>
+          <a href="#" class="btn btn-success">Luo tarhaan uusi pesä</a>
         </p>
 
       </div>
 
       <div class="col-sm-4">
-           <img src="{{hive.picture}}" alt="Kuva tarhasta">
+           <img src="{{base_path}}/assets/images/icon.png" >
       </div>
 
     </div>
@@ -39,34 +33,49 @@
 
     <div class="row">
 
-      {% for apiary in apiarys %}
+      <div class="col-sm-4">
+        <div class="card border-warning">
 
-          <div class="col-sm-4">
-            <div class="card border-warning">
+          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
 
-              <img class="card-img-top" src="{{apiary.picture}}" alt="Kuva pesästä">
+          <div class="card-body">
+            <h4 class="card-title">Mökkimetsän hunajapesä nro 1</h4>
+            <p class="card-text">Tämä on se lähimpänä mökkiä oleva.</p>
 
-              <div class="card-body">
-                <h4 class="card-title">{{apiary.name}}</h4>
-                <p class="card-text">{{apiary.comments}}</p>
+            <a href="#" class="btn btn-warning">Pesän tiedot</a>
+            <a href="#" class="btn btn-info">Tarkasta pesä</a>
 
-                <a href="{{base_path}}/apiary/{{apiary.apiaryID}}" class="btn btn-warning">Pesän tiedot</a>
-                <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
-
-              </div>
-
-                {% if hive.lastInspected %}
-                    <div class="card-footer">
-                      <small class="text-muted">Pesä tarkastettu viimeksi {{apiary.lastInspected}}</small>
-                      <br/>
-                    </div>
-                {% endif %}
-
-            </div>
           </div>
 
-      {% endfor %}
+          <div class="card-footer">
+            <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
+            <br/>
+          </div>
 
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card border-warning">
+
+          <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+          <div class="card-body">
+            <h4 class="card-title">Mökkimetsän hunajapesä nro 2</h4>
+            <p class="card-text">Tämä on se lähimpänä rantaa oleva.</p>
+
+            <a href="#" class="btn btn-warning">Pesän tiedot</a>
+            <a href="#" class="btn btn-info">Tarkasta pesä</a>
+
+          </div>
+
+          <div class="card-footer">
+            <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
+            <br/>
+          </div>
+
+        </div>
+      </div>
 
 
     </div>

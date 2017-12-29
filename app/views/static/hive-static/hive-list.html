@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "static/base-static.html" %}
 {% block content %}
 
   <h1>Mehiläistarhat</h1>
@@ -21,35 +21,45 @@
       </div>
     </div>
 
-
-{% for hive in hives %}
-
     <div class="col-sm-4">
       <div class="card border-warning">
 
-        <img class="card-img-top" src="{{hive.picture}}" alt="Kuva tarhasta">
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
 
         <div class="card-body">
-          <h4 class="card-title">{{hive.name}}</h4>
-          <p class="card-text">{{hive.comments}}</p>
+          <h4 class="card-title">Mökkimetsän hunajatarha</h4>
+          <p class="card-text">Laukaan mökkimetsissä olevat pesät.</p>
 
-          <a href="{{base_path}}/hive/{{hive.hiveID}}" class="btn btn-warning">Tarhan tiedot ja pesälistaus</a>
+          <a href="#" class="btn btn-warning">Tarhan tiedot ja pesälistaus</a>
 
         </div>
 
         <div class="card-footer">
-          {% if hive.countApiarys>1 %}
-              <small class="text-muted">Tarhassa on {{hive.countApiarys}} pesää</small>
-          {% elseif hive.countApiarys==1 %}
-              <small class="text-muted">Tarhassa on 1 pesä</small>
-          {% endif %}
+          <small class="text-muted">Tarhassa on 4 pesää</small>
         </div>
 
       </div>
     </div>
 
-{% endfor %}
+    <div class="col-sm-4">
+      <div class="card border-warning">
 
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Kotipihan hunajatarha</h4>
+          <p class="card-text">Omalla pihalla olevat pesät.</p>
+
+          <a href="#" class="btn btn-warning">Tarhan tiedot ja pesälistaus</a>
+
+        </div>
+
+        <div class="card-footer">
+          <small class="text-muted">Tarhassa on 2 pesää</small>
+        </div>
+
+      </div>
+    </div>
 
 
   </div>
