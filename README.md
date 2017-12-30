@@ -53,15 +53,15 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] Suunnittele etusivu
     - [tunnusten luonti](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/signup)
     - [kirjautuminen](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/home)
-    - [kirjautumisen jälkeen](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/login)
+    - [kirjautumisen jälkeen (muistutusten listaus)](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/login)
   - [x] Suunnittele kaikki listaussivut
     - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/list)
     - [pesä](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/list)
-      - [pesän tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspectionForm)
-      - [pesän tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspection)
+      - [pesän tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspection)
+      - [pesän tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/apiary/inspectionForm)
     - [emo](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/list)
-      - [emon tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspectionForm)
-      - [emon tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspection)
+      - [emon tarkastuslomakkeen valinta](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspection)
+      - [emon tarkastuslomake](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/queen/inspectionForm)
     - [tarkastuslomakkeet](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/inspection/list)
   - [ ] Suunnittele kaikki muokkaussivut
     - [tarha](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/hive/edit)
@@ -107,7 +107,7 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
 - [ ] käyttäjätunnus ja salasana, jolla voi kirjautua sisään sovellukseesi
-- [ ] Pushaa kaikki tekämäsi muutokset repoosi
+- [ ] Pushaa kaikki tekemäsi muutokset repoosi
 
 ### Viikko 5
 .

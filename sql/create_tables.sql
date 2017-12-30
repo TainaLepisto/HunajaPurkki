@@ -1,83 +1,89 @@
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
 
-CREATE TABLE Beekeeper(
-  beekeeperID SERIAL PRIMARY KEY,
-  email varchar(50) NOT NULL,
-  password varchar(50) NOT NULL
+CREATE TABLE beekeeper(
+  beekeeperid SERIAL PRIMARY KEY,
+  email VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Hive(
-  hiveID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  name varchar(100) NOT NULL,
+CREATE TABLE hive(
+  hiveid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  name VARCHAR(100) NOT NULL,
   picture bytea,
-  location varchar(100),
-  comments varchar(500)
+  location VARCHAR(100),
+  comments VARCHAR(500)
 );
 
-CREATE TABLE Queen(
-  queenID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  name varchar(100) NOT NULL,
+CREATE TABLE queen(
+  queenid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  name VARCHAR(100) NOT NULL,
   picture bytea,
-  color varchar(100),
-  comments varchar(500)
+  color VARCHAR(100),
+  comments VARCHAR(500)
 );
 
-CREATE TABLE Apiary(
-  apiaryID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  hiveID INTEGER REFERENCES Hive(hiveID),
-  queenID INTEGER REFERENCES Queen(queenID),
-  name varchar(100) NOT NULL,
+CREATE TABLE apiary(
+  apiaryid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  hiveid INTEGER REFERENCES hive(hiveid),
+  queenid INTEGER REFERENCES queen(queenid),
+  name VARCHAR(100) NOT NULL,
   picture bytea,
-  location varchar(100),
-  comments varchar(500)
+  location VARCHAR(100),
+  comments VARCHAR(500)
 );
 
-CREATE TABLE Reminder(
-  reminderID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  apiaryID INTEGER REFERENCES Apiary(apiaryID),
-  title varchar(100) NOT NULL,
-  remindDate DATE,
-  comments varchar(500)
+CREATE TABLE reminder(
+  reminderid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  apiaryid INTEGER REFERENCES apiary(apiaryid),
+  title VARCHAR(100) NOT NULL,
+  reminderdate DATE,
+  comments VARCHAR(500)
 );
 
-CREATE TABLE InspectionHeader(
-  inspectionHeaderID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  title varchar(100) NOT NULL
+CREATE TABLE linkreminderapiary(
+  linkreminderapiaryid SERIAL PRIMARY KEY,
+  reminderid INTEGER REFERENCES reminder(reminderid),
+  apiaryid INTEGER REFERENCES apiary(apiaryid)
 );
 
-CREATE TABLE InspectionField(
-  inspectionFieldID SERIAL PRIMARY KEY,
-  inspectionHeaderID INTEGER REFERENCES InspectionHeader(inspectionHeaderID),
-  fieldName varchar(100),
-  fieldType varchar(100),
-  fieldValues varchar(100),
-  fieldUnit varchar(100),
+CREATE TABLE inspectionheader(
+  inspectionheaderid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  title VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE inspectionfield(
+  inspectionfieldid SERIAL PRIMARY KEY,
+  inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
+  fieldname VARCHAR(100),
+  fieldtype VARCHAR(100),
+  fieldValues VARCHAR(100),
+  fieldUnit VARCHAR(100),
   sortOrder INTEGER
 );
 
-CREATE TABLE ApiaryInspection(
-  apiaryInspectionID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  apiaryID INTEGER REFERENCES Apiary(apiaryID),
-  inspectionHeaderID INTEGER REFERENCES InspectionHeader(inspectionHeaderID),
-  inspectionFieldID INTEGER REFERENCES InspectionField(inspectionFieldID),
+CREATE TABLE apiaryinspection(
+  apiaryinspectionid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  apiaryid INTEGER REFERENCES apiary(apiaryid),
+  inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
+  inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
   inspectionDate DATE,
-  comments varchar(500),
-  value varchar(200)
+  comments VARCHAR(500),
+  value VARCHAR(200)
 );
 
-CREATE TABLE QueenInspection(
-  queenInspectionID SERIAL PRIMARY KEY,
-  beekeeperID INTEGER REFERENCES Beekeeper(beekeeperID),
-  queenID INTEGER REFERENCES Queen(queenID),
-  inspectionHeaderID INTEGER REFERENCES InspectionHeader(inspectionHeaderID),
-  inspectionFieldID INTEGER REFERENCES InspectionField(inspectionFieldID),
-  inspectionDate DATE,
-  comments varchar(500),
-  value varchar(200)
+CREATE TABLE queeninspection(
+  queeninspectionid SERIAL PRIMARY KEY,
+  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
+  queenid INTEGER REFERENCES queen(queenid),
+  inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
+  inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
+  inspectiondate DATE,
+  comments VARCHAR(500),
+  value VARCHAR(200)
 );

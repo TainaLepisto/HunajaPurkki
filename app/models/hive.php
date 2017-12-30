@@ -13,12 +13,12 @@
           SELECT h.*, a.countapiarys
           FROM hive
           LEFT JOIN (
-            SELECT hiveid, count(*) as countapiarys
+            SELECT hiveid, count(*) AS countapiarys
             FROM apiary
-            WHERE hiveid = :id
             GROUP BY hiveid
-          ) as a
-          ON h.hiveid = a.hiveid');
+            ) AS a
+          ON h.hiveid = a.hiveid
+        ');
         $query->execute();
         $rows = $query->fetchAll();
         $hives = array();
@@ -73,7 +73,7 @@
 
 
        public function save(){
-         // MUISTA RETURNING! 
+         // MUISTA RETURNING!
           $query = DB::connection()->prepare('INSERT INTO hive (name, picture, location, comments) VALUES (:name, :picture, :location, :comments) RETURNING hiveid');
           // HUOM! syntaksi $olio->kenttä
           $query->execute(array('name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));

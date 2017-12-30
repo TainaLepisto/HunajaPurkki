@@ -8,8 +8,16 @@
       }
 
       public static function all(){
-        // TODO: alikysely lastInspected
-        $query = DB::connection()->prepare('SELECT * FROM apiary');
+        $query = DB::connection()->prepare('
+          SELECT a.*, ai.lastinspected
+          FROM apiary AS a
+          LEFT JOIN (
+            SELECT apiaryid, max(inspectionDate) AS lastinspected
+            FROM apiaryinspection
+            GROUP BY apiaryid
+            ) AS ai
+          ON a.apiaryid = ai.apiaryid
+        ');
         $query->execute();
         $rows = $query->fetchAll();
         $hives = array();
@@ -24,7 +32,7 @@
             'picture' => $row['picture'],
             'location' => $row['location'],
             'comments' => $row['comments']
-//            'lastInspected' => $row['lastInspected']
+            'lastInspected' => $row['lastinspected']
           ));
         }
 
@@ -33,8 +41,18 @@
 
 
       public static function find($id){
-        // TODO: alikysely lastInspected
-         $query = DB::connection()->prepare('SELECT * FROM apiary WHERE apiaryid = :id LIMIT 1');
+         $query = DB::connection()->prepare('
+           SELECT a.*, ai.lastinspected
+           FROM apiary AS a
+           LEFT JOIN (
+             SELECT apiaryid, max(inspectionDate) AS lastinspected
+             FROM apiaryinspection
+             WHERE apiaryid = :id
+             GROUP BY apiaryid
+             ) AS ai
+           ON a.apiaryid = ai.apiaryid
+           WHERE apiaryid = :id LIMIT 1
+         ');
          $query->execute(array('id' => $id));
          $row = $query->fetch();
 
@@ -48,7 +66,7 @@
              'picture' => $row['picture'],
              'location' => $row['location'],
              'comments' => $row['comments']
- //            'lastInspected' => $row['lastInspected']
+             'lastInspected' => $row['lastInspected']
            ));
 
            return $apiary;
@@ -60,7 +78,18 @@
 
 
       public static function apiarysOfHive($HiveID){
-        $query = DB::connection()->prepare('SELECT * FROM apiary WHERE hiveid = :id');
+        $query = DB::connection()->prepare('
+          SELECT a.*, ai.lastinspected
+          FROM apiary AS a
+          LEFT JOIN (
+            SELECT apiaryid, max(inspectionDate) AS lastinspected
+            FROM apiaryinspection
+            WHERE hiveid = :id
+            GROUP BY apiaryid
+            ) AS ai
+          ON a.apiaryid = ai.apiaryid
+          WHERE hiveid = :id
+        ');
         $query->execute(array('id' => $HiveID));
         $query->execute();
         $rows = $query->fetchAll();
@@ -73,7 +102,7 @@
               'name' => $row['name'],
               'picture' => $row['picture'],
               'comments' => $row['comments']
-  //          lastInspected => TODO:
+              'lastInspected' => $row['lastInspected']
             ));
           }
 
@@ -84,6 +113,16 @@
 
       }
 
+
+      public function save(){
+        // MUISTA RETURNING!
+         $query = DB::connection()->prepare('INSERT INTO apiary (hiveid, queenid, name, picture, location, comments) VALUES (:hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
+         // HUOM! syntaksi $olio->kenttä
+         $query->execute(array('hiveid' => $this->hiveid, 'queenid' => $this->queenid, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+         // napataan talteen olioomme luotu ID tunnus
+         $row = $query->fetch();
+         $this->apiaryID = $row['apiaryid'];
+       }
 
 
 }
