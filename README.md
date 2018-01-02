@@ -42,9 +42,9 @@ Siinä sovellus jaetaan kolmeen osaan:
 ### Viikko 1
 - [x] Valitse harjoitustyösi aihe
 - [x] Pystytä versionhallinta
-- [ ] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
+- [x] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
   - [x] Johdanto
-  - [ ] Käyttötapaukset (pääosin tehty - puuttuu vielä tekstikuvaukset)
+  - [x] Käyttötapaukset
 - [x] Pystytä työympäristö
 - [x] Rekisteröidy labtooliin
 
