@@ -10,18 +10,18 @@ CREATE TABLE hive(
   hiveid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
   name VARCHAR(100) NOT NULL,
-  picture bytea,
+  picture VARCHAR(500),
   location VARCHAR(100),
-  comments VARCHAR(500)
+  comments TEXT
 );
 
 CREATE TABLE queen(
   queenid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
   name VARCHAR(100) NOT NULL,
-  picture bytea,
+  picture VARCHAR(500),
   color VARCHAR(100),
-  comments VARCHAR(500)
+  comments TEXT
 );
 
 CREATE TABLE apiary(
@@ -30,9 +30,9 @@ CREATE TABLE apiary(
   hiveid INTEGER REFERENCES hive(hiveid),
   queenid INTEGER REFERENCES queen(queenid),
   name VARCHAR(100) NOT NULL,
-  picture bytea,
+  picture VARCHAR(500),
   location VARCHAR(100),
-  comments VARCHAR(500)
+  comments TEXT
 );
 
 CREATE TABLE reminder(
@@ -41,7 +41,7 @@ CREATE TABLE reminder(
   apiaryid INTEGER REFERENCES apiary(apiaryid),
   title VARCHAR(100) NOT NULL,
   reminderdate DATE,
-  comments VARCHAR(500)
+  comments TEXT
 );
 
 CREATE TABLE linkreminderapiary(
@@ -73,7 +73,7 @@ CREATE TABLE apiaryinspection(
   inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
   inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
   inspectionDate DATE,
-  comments VARCHAR(500),
+  comments TEXT,
   value VARCHAR(200)
 );
 
@@ -84,6 +84,6 @@ CREATE TABLE queeninspection(
   inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
   inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
   inspectiondate DATE,
-  comments VARCHAR(500),
+  comments TEXT,
   value VARCHAR(200)
 );

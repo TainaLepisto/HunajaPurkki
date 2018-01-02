@@ -53,24 +53,32 @@
     ApiaryController::listAll();
   });
 
+  $routes->get('/apiary/new/:id', function($id){
+    ApiaryController::createForHive($id);
+  });
+
   $routes->get('/apiary/new', function(){
     ApiaryController::create();
   });
 
-  $routes->get('/apiary/1', function() {
-    ApiaryController::show();
+  $routes->post('/apiary', function(){
+    ApiaryController::saveNew();
   });
 
-  $routes->get('/apiary/1/edit', function() {
-    ApiaryController::edit();
+  $routes->get('/apiary/:id', function($id) {
+    ApiaryController::show($id);
   });
 
-  $routes->get('/apiary/1/inspection', function() {
-    ApiaryController::inspection();
+  $routes->get('/apiary/:id/edit', function($id) {
+    ApiaryController::edit($id);
   });
 
-  $routes->get('/apiary/1/inspectionform', function() {
-    ApiaryController::inspectionForm();
+  $routes->get('/apiary/:id/inspection', function($id) {
+    ApiaryController::inspection($id);
+  });
+
+  $routes->get('/apiary/:id/inspectionform', function($id) {
+    ApiaryController::inspectionForm($id);
   });
 
 // EMOON (QUEEN) liittyvät reitit

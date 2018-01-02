@@ -21,7 +21,7 @@
     public static function saveNew(){
       // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
       $params = $_POST;
-      // Alustetaan uusi Game-luokan olion käyttäjän syöttämillä arvoilla
+      // Alustetaan uusi hive-luokan olion käyttäjän syöttämillä arvoilla
       $hive = new Hive(array(
         'name' => $params['name'],
         'picture' => $params['picture'],
@@ -40,7 +40,6 @@
      public static function show($id){
        $hive = Hive::find($id);
        $apiarysOfHive = Apiary::apiarysOfHive($id);
-
        View::make('hive/hive-show.html', array('hive' => $hive, 'apiarys' => $apiarysOfHive));
      }
 
@@ -49,17 +48,6 @@
        View::make('hive/hive-edit.html', array('hive' => $hive));
      }
 
-
-// staattiset opelle
-     public static function staticlist(){
-       View::make('hive/hive-static-list.html');
-     }
-     public static function staticshow(){
-      View::make('hive/hive-static-show.html');
-    }
-    public static function staticedit(){
-       View::make('hive/hive-static-edit.html');
-    }
 
 
   }

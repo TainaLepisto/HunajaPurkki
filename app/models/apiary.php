@@ -1,7 +1,7 @@
 <?php
 
   class Apiary extends BaseModel{
-      public $apiaryID, $beekeeperID, $hiveID, $queenID, $name, $picture, $location, $comments, $lastInspected ;
+      public $apiaryID, $beekeeperID, $hiveID, $hiveName, $queenID, $queenName, $name, $picture, $location, $comments, $lastInspected ;
 
       public function __construct($attributes){
         parent::__construct($attributes);
@@ -9,7 +9,7 @@
 
       public static function all(){
         $query = DB::connection()->prepare('
-          SELECT a.*, ai.lastinspected
+          SELECT a.*, ai.lastinspected, h.hivename
           FROM apiary AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
@@ -17,33 +17,41 @@
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
+          LEFT JOIN (
+            SELECT hiveid, name AS hivename
+            FROM hive
+            ) AS h
+          on a.hiveid = h.hiveid
         ');
         $query->execute();
         $rows = $query->fetchAll();
-        $hives = array();
+        $apiarys = array();
 
         foreach($rows as $row){
           $apiarys[] = new Apiary(array(
             'apiaryID' => $row['apiaryid'],
             'beekeeperID' => $row['beekeeperid'],
             'hiveID' => $row['hiveid'],
+            'hiveName' => $row['hivename'],
             'queenID' => $row['queenid'],
             'name' => $row['name'],
             'picture' => $row['picture'],
             'location' => $row['location'],
-            'comments' => $row['comments']
+            'comments' => $row['comments'],
             'lastInspected' => $row['lastinspected']
           ));
         }
 
-        return $hives;
+        return $apiarys;
       }
 
 
       public static function find($id){
          $query = DB::connection()->prepare('
-           SELECT a.*, ai.lastinspected
-           FROM apiary AS a
+           SELECT a.*, ai.lastinspected, q.queenname, h.hivename
+           FROM (
+             SELECT * FROM apiary
+             WHERE apiaryid = :id) AS a
            LEFT JOIN (
              SELECT apiaryid, max(inspectionDate) AS lastinspected
              FROM apiaryinspection
@@ -51,7 +59,17 @@
              GROUP BY apiaryid
              ) AS ai
            ON a.apiaryid = ai.apiaryid
-           WHERE apiaryid = :id LIMIT 1
+           LEFT JOIN (
+             SELECT queenid, name AS queenname
+             FROM queen
+             ) AS q
+           ON a.queenid = q.queenid
+           LEFT JOIN (
+             SELECT hiveid, name AS hivename
+             FROM hive
+             ) AS h
+           on a.hiveid = h.hiveid
+           LIMIT 1
          ');
          $query->execute(array('id' => $id));
          $row = $query->fetch();
@@ -61,12 +79,14 @@
              'apiaryID' => $row['apiaryid'],
              'beekeeperID' => $row['beekeeperid'],
              'hiveID' => $row['hiveid'],
+             'hiveName' => $row['hivename'],
              'queenID' => $row['queenid'],
+             'queenName' => $row['queenname'],
              'name' => $row['name'],
              'picture' => $row['picture'],
              'location' => $row['location'],
-             'comments' => $row['comments']
-             'lastInspected' => $row['lastInspected']
+             'comments' => $row['comments'],
+             'lastInspected' => $row['lastinspected']
            ));
 
            return $apiary;
@@ -77,39 +97,35 @@
 
 
 
-      public static function apiarysOfHive($HiveID){
+      public static function apiarysOfHive($id){
         $query = DB::connection()->prepare('
           SELECT a.*, ai.lastinspected
-          FROM apiary AS a
+          FROM (
+            SELECT * FROM apiary
+            WHERE hiveid = :id) AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
             FROM apiaryinspection
-            WHERE hiveid = :id
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
-          WHERE hiveid = :id
         ');
-        $query->execute(array('id' => $HiveID));
+        $query->execute(array('id' => $id));
         $query->execute();
         $rows = $query->fetchAll();
-        $hives = array();
+        $apiarys = array();
 
-        if($rows){
-          foreach($rows as $row){
-            $apiarys[] = new Apiary(array(
-              'apiaryID' => $row['apiaryid'],
-              'name' => $row['name'],
-              'picture' => $row['picture'],
-              'comments' => $row['comments']
-              'lastInspected' => $row['lastInspected']
-            ));
-          }
-
-          return $apiarys;
+        foreach($rows as $row){
+          $apiarys[] = new Apiary(array(
+            'apiaryID' => $row['apiaryid'],
+            'name' => $row['name'],
+            'picture' => $row['picture'],
+            'comments' => $row['comments'],
+            'lastInspected' => $row['lastinspected']
+          ));
         }
 
-      return null;
+        return $apiarys;
 
       }
 
@@ -118,7 +134,7 @@
         // MUISTA RETURNING!
          $query = DB::connection()->prepare('INSERT INTO apiary (hiveid, queenid, name, picture, location, comments) VALUES (:hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
          // HUOM! syntaksi $olio->kenttä
-         $query->execute(array('hiveid' => $this->hiveid, 'queenid' => $this->queenid, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+         $query->execute(array('hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
          // napataan talteen olioomme luotu ID tunnus
          $row = $query->fetch();
          $this->apiaryID = $row['apiaryid'];

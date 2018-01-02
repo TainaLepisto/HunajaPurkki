@@ -16,7 +16,7 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 ### TechStack
 
-- HTML([Hypertext Markup Language, eli hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
+- HTML ([Hypertext Markup Language, eli hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
 - PHP ([PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages](https://www.w3schools.com/php/))
 - PostgreSQL ([powerful, open source object-relational database system](http://www.tutorialspoint.com/postgresql/index.htm))
 - SQL ([Structured Query Language, lets you access and manipulate databases](https://www.w3schools.com/sql/sql_intro.asp))
@@ -87,13 +87,13 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
-- [x] Toteuta sovellukseesi vähintään yksi malliluokka, jossa on
+- [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Hive](./app/models/hive.php), [Apiary](./app/models/apiary.php), ), jossa on
   - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
   - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
   - [x] tietokohteen olion tietokantaan lisäävä metodi (esim. save)
-- [x] Toteuta malliasi käyttämään kontrolleriin metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [x] Toteuta malliasi käyttämään kontrolleriin ([Hive](./app/controllers/hive-controller.php), [Apiary](./app/controllers/apiary-controller.php), ) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
 - [ ] Kirjoita koodikatselmointi
-- [ ] Pushaa kaikki muutokset
+- [x] Pushaa kaikki muutokset
 
 ### Viikko 4
 - [ ] Lisää malliluokkaasi metodi ja käyttäjälle toiminnot tietokohteen olion

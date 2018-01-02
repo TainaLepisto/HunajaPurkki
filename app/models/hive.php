@@ -11,7 +11,7 @@
       public static function all(){
         $query = DB::connection()->prepare('
           SELECT h.*, a.countapiarys
-          FROM hive
+          FROM hive AS h
           LEFT JOIN (
             SELECT hiveid, count(*) AS countapiarys
             FROM apiary
@@ -30,7 +30,7 @@
             'name' => $row['name'],
             'picture' => $row['picture'],
             'location' => $row['location'],
-            'comments' => $row['comments']
+            'comments' => $row['comments'],
             'countApiarys' => $row['countapiarys']
           ));
         }
@@ -42,15 +42,17 @@
       public static function find($id){
          $query = DB::connection()->prepare('
             SELECT h.*, a.countapiarys
-              FROM hive
+              FROM (
+                SELECT * FROM hive
+                WHERE hiveid = :id) AS h
               LEFT JOIN (
                 SELECT hiveid, count(*) as countapiarys
                 FROM apiary
                 WHERE hiveid = :id
                 GROUP BY hiveid
-                ) as a
+                ) AS a
               ON h.hiveid = a.hiveid
-              WHERE h.hiveid = :id LIMIT 1');
+              LIMIT 1');
          $query->execute(array('id' => $id));
          $row = $query->fetch();
 
@@ -61,7 +63,7 @@
              'name' => $row['name'],
              'picture' => $row['picture'],
              'location' => $row['location'],
-             'comments' => $row['comments']
+             'comments' => $row['comments'],
              'countApiarys' => $row['countapiarys']
            ));
 

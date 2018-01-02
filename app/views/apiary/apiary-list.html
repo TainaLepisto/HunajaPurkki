@@ -8,7 +8,7 @@
     <div class="col-sm-4">
       <div class="card border-warning">
 
-        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Lisää uusi pesä">
 
         <div class="card-body">
           <h4 class="card-title">Lisää uusi pesä</h4>
@@ -21,60 +21,49 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
-      <div class="card border-warning">
 
-        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+    {% for apiary in apiarys %}
 
-        <div class="card-body">
-          <h4 class="card-title">Mökkimetsän hunajapesä nro 1</h4>
-          <p class="card-text">Tämä on se lähimpänä mökkiä oleva.</p>
+      <div class="col-sm-4">
+        <div class="card border-warning">
 
-          <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-          <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
+          <img class="card-img-top img-fluid img-thumbnail" src="{{apiary.picture}}" alt="Kuva pesästä">
+
+          <div class="card-body">
+            <h4 class="card-title">{{apiary.name}}</h4>
+            <p class="card-text">{{apiary.comments}}</p>
+
+            <a href="{{base_path}}/apiary/{{apiary.apiaryID}}" class="btn btn-warning">Pesän tiedot</a>
+            <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
+
+          </div>
+
+          <div class="card-footer">
+            <p>
+
+              {% if apiary.lastInspected %}
+                <small class="text-muted">Pesä tarkastettu viimeksi {{apiary.lastInspected}}</small>
+              {% else %}
+                <small class="text-muted">Pesää ei ole vielä tarkastettu.</small>
+              {% endif %}
+
+              <br/>
+
+              {% if apiary.hiveName %}
+                <small class="text-muted">Tarha: {{apiary.hiveName}}</small>
+              {% else %}
+                <small class="text-muted">Pesää ei ole kiinnitetty tarhaan</small>
+              {% endif %}
+
+            </p>
+          </div>
 
         </div>
-
-        <div class="card-footer">
-          <p>
-            <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
-            <br/>
-            <small class="text-muted">Tarha: Mökkimetsän hunajatarha</small>
-          </p>
-        </div>
-
       </div>
-    </div>
 
-    <div class="col-sm-4">
-      <div class="card border-warning">
-
-        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
-
-        <div class="card-body">
-          <h4 class="card-title">Mökkimetsän hunajapesä nro 2</h4>
-          <p class="card-text">Tämä on se lähimpänä rantaa oleva.</p>
-
-          <a href="{{base_path}}/apiary/1" class="btn btn-warning">Pesän tiedot</a>
-          <a href="{{base_path}}/apiary/1/inspection" class="btn btn-info">Tarkasta pesä</a>
-
-        </div>
-
-        <div class="card-footer">
-          <p>
-            <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
-            <br/>
-            <small class="text-muted">Tarha: Mökkimetsän hunajatarha</small>
-          </p>
-        </div>
-
-      </div>
-    </div>
-
+    {% endfor %}
 
   </div>
-
-
 
 
 {% endblock %}
