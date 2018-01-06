@@ -46,7 +46,7 @@
                   >{{hive.name}}</option>
             {% endfor %}
 
-            <option value="-1"
+            <option value="0"
             {% if apiary.hiveID == hive.hiveID %}
               selected
             {% endif %}
@@ -66,7 +66,7 @@
               >{{queen.name}}</option>
             {% endfor %}
 
-            <option value="-1"
+            <option value="0"
             {% if apiary.queenID == queen.queenID %}
               selected
             {% endif %}

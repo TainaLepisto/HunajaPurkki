@@ -17,8 +17,9 @@
     public static function createForHive($hiveID){
       $hives = Hive::all();
       $queens = Queen::all();
+      $attributes = array('hiveID' => $hiveID);
 
-      View::make('apiary/apiary-new.html', array('hives' => $hives, 'selectedHive' => $hiveID, 'queens' => $queens));
+      View::make('apiary/apiary-new.html', array('hives' => $hives, 'queens' => $queens, 'attributes' => $attributes));
     }
 
     public static function saveNew(){

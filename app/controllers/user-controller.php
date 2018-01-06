@@ -12,7 +12,7 @@
       }else{
         $_SESSION['user'] = $user->userID;
 
-        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name . '.'));
+        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name));
       }
     }
 
