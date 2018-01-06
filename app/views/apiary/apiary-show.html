@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+  {% if message %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+  {% endif %}
 
 <div class="container">
   <div class="row ">
 
     <div class="col-sm-6">
-
-      {% if message %}
-      <div class="alert alert-success">
-          {{message}}
-      </div>
-      {% endif %}
 
       <h1>{{apiary.name}}</h1>
 
@@ -57,7 +56,10 @@
       </table>
 
       <p>
-        <button class="btn btn-danger">Poista</button>
+        <form method="post" action="{{base_path}}/apiary/{{apiary.apiaryID}}/remove" style="display: inline-block;">
+          <button type="submit" class="btn btn-danger">Poista</button>
+        </form>
+
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/edit" class="btn btn-warning">Muokkaa</a>
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
       </p>
@@ -112,7 +114,7 @@
       </p>
 
     {% endfor %}
-    
+
 {% endif %}
 
 

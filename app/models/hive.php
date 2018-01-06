@@ -96,4 +96,19 @@
           $this->hiveID = $row['hiveid'];
         }
 
+        public function update(){
+           $query = DB::connection()->prepare('
+              UPDATE hive
+                SET name=:name, picture=:picture, location=:location, comments=:comments
+              WHERE hiveid = :id ');
+           $query->execute(array('id' => $this->hiveID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+         }
+
+        public function remove(){
+           $query = DB::connection()->prepare('DELETE FROM hive WHERE hiveid = :id ');
+           $query->execute(array('id' => $this->hiveID));
+         }
+
+
+
 }

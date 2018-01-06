@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+  {% if message %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+  {% endif %}
+
   <h1>Mehiläistarhat</h1>
 
   <div class="row">

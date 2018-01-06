@@ -54,9 +54,44 @@
      public static function edit($id){
        $apiary = Apiary::find($id);
        $hives = Hive::all();
+       $queens = Queen::all();
 
-       View::make('apiary/apiary-edit.html', array('apiary' => $apiary, 'hives' => $hives));
+       View::make('apiary/apiary-edit.html', array('apiary' => $apiary, 'hives' => $hives, 'queens' => $queens));
      }
+
+     public static function update($id){
+       $params = $_POST;
+       $apiary = new Apiary(array(
+         'apiaryID' => $id,
+         'hiveID' => $params['selectHive'],
+         'queenID' => $params['selectQueen'],
+         'name' => $params['name'],
+         'picture' => $params['picture'],
+         'location' => $params['location'],
+         'comments' => $params['comments']
+       ));
+
+       // tarkastetaan onko arvot sallittuja
+       $errors = $apiary->errors();
+
+       if(count($errors) == 0){
+           $apiary->update();
+           Redirect::to('/apiary/' . $apiary->apiaryID, array('message' => 'Pesän tiedot on päivitetty'));
+       }else{
+           $hives = Hive::all();
+           $queens = Queen::all();
+           View::make('apiary/apiary-edit.html', array('errors' => $errors, 'apiary' => $apiary, 'hives' => $hives, 'queens' => $queens));
+       }
+
+     }
+
+
+     public static function remove($id){
+       $apiary = new Apiary(array('apiaryID' => $id));
+       $apiary->remove();
+       Redirect::to('/apiary', array('message' => 'Pesä on poistettu onnistuneesti'));
+     }
+
 
      public static function inspection($id){
        View::make('apiary/apiary-inspection.html');

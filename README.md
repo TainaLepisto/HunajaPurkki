@@ -96,12 +96,12 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Pushaa kaikki muutokset
 
 ### Viikko 4
-- [ ] Lisää malliluokkaasi metodi ja käyttäjälle toiminnot tietokohteen olion
-  - [ ] muokkaamiselle (esim. update)
-  - [ ] poistolle (esim. destroy)
-- [ ] Lisää malliisi tarvittavat validaattorit ja estä kontrollereissa virheellisten syötteiden lisääminen tietokantaan.
-  - [ ] näytä lomakkeissa virhetilanteissa virheilmoitukset
-  - [ ] täytä kentät käyttäjän antamilla syötteillä
+- [x] Lisää malliluokkaasi metodi ja käyttäjälle toiminnot tietokohteen olion
+  - [x] muokkaamiselle (esim. update)
+  - [x] poistolle (esim. destroy)
+- [x] Lisää malliisi tarvittavat validaattorit ja estä kontrollereissa virheellisten syötteiden lisääminen tietokantaan.
+  - [x] näytä lomakkeissa virhetilanteissa virheilmoitukset
+  - [x] täytä kentät käyttäjän antamilla syötteillä
 - [ ] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
   - [ ] Toteuta get_user_logged_in-metodi
   - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa

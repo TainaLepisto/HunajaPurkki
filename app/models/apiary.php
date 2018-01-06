@@ -155,5 +155,19 @@
          $this->apiaryID = $row['apiaryid'];
        }
 
+       public function update(){
+          $query = DB::connection()->prepare('
+              UPDATE apiary
+                SET hiveid=:hiveid, queenid=:queenid, name=:name, picture=:picture, location=:location, comments=:comments
+              WHERE apiaryid = :id ');
+          $query->execute(array('id' => $this->apiaryID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+        }
+
+        public function remove(){
+           $query = DB::connection()->prepare('DELETE FROM apiary WHERE apiaryid = :id ');
+           $query->execute(array('id' => $this->apiaryID));
+         }
+
+
 
 }

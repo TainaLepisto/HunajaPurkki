@@ -39,7 +39,7 @@
         View::make('hive/hive-new.html', array('errors' => $errors, 'attributes' => $hive));
       }
 
-     }
+    }
 
 
      public static function show($id){
@@ -53,6 +53,35 @@
        View::make('hive/hive-edit.html', array('hive' => $hive));
      }
 
+     public static function update($id){
+       // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
+       $params = $_POST;
+       // Alustetaan uusi hive-luokan olion käyttäjän syöttämillä arvoilla
+       $hive = new Hive(array(
+         'hiveID' => $id,
+         'name' => $params['name'],
+         'picture' => $params['picture'],
+         'location' => $params['location'],
+         'comments' => $params['comments']
+       ));
 
+       // tarkastetaan onko arvot sallittuja
+       $errors = $hive->errors();
+
+       if(count($errors) == 0){
+         $hive->update();
+         Redirect::to('/hive/' . $hive->hiveID, array('message' => 'Tarhan tiedot on päivitetty'));
+       }else{
+         View::make('hive/hive-edit.html', array('errors' => $errors, 'hive' => $hive));
+       }
+
+     }
+
+
+     public static function remove($id){
+       $hive = new Hive(array('hiveID' => $id));
+       $hive->remove();
+       Redirect::to('/hive', array('message' => 'Tarha on poistettu onnistuneesti'));
+     }
 
   }

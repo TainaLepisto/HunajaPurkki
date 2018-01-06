@@ -31,7 +31,7 @@
     HiveController::listAll();
   });
 
-  $routes->post('/hive', function(){
+  $routes->post('/hive/new', function(){
     HiveController::saveNew();
   });
 
@@ -47,6 +47,13 @@
     HiveController::edit($id);
   });
 
+  $routes->post('/hive/:id/edit', function($id) {
+    HiveController::update($id);
+  });
+
+  $routes->post('/hive/:id/remove', function($id) {
+    HiveController::remove($id);
+  });
 
 // Pesään (APIARY) liittyvät reitit
   $routes->get('/apiary', function() {
@@ -71,6 +78,14 @@
 
   $routes->get('/apiary/:id/edit', function($id) {
     ApiaryController::edit($id);
+  });
+
+  $routes->post('/apiary/:id/edit', function($id) {
+    ApiaryController::update($id);
+  });
+
+  $routes->post('/apiary/:id/remove', function($id) {
+    ApiaryController::remove($id);
   });
 
   $routes->get('/apiary/:id/inspection', function($id) {
