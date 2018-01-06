@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/forms.html" as forms %}
+
+
   {% if message %}
     <div class="alert alert-success">
         {{message}}
@@ -28,9 +31,7 @@
 
         <p>
 
-          <form method="post" action="{{base_path}}/hive/{{hive.hiveID}}/remove" style="display: inline-block;">
-            <button type="submit" class="btn btn-danger">Poista</button>
-          </form>
+          {{forms.destroy_button("#{base_path}/hive/#{hive.hiveID}/remove")}}
 
           <a href="{{base_path}}/hive/{{hive.hiveID}}/edit" class="btn btn-warning">Muokkaa</a>
           <a href="{{base_path}}/apiary/new/{{hive.hiveID}}" class="btn btn-success">Luo tarhaan uusi pesä</a>

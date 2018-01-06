@@ -30,10 +30,10 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 > Web-sovellusten toteutusmalli, jonka tarkoituksena on erottaa näkymä sovelluslogiikasta.
 Siinä sovellus jaetaan kolmeen osaan:
-
+>
 > - malliin (model), joka mahdollistaa tietokannasta haetun tiedon esittämisen sovelluksen kannalta mielekkäässä muodossa, eli yleensä olioina, jolloin kukin malli kuvaa yhtä sovelluksen tietokohteista (esim. Asiakas, Tuote, Opiskelija, jne.). Kaikki tietokantaan kohdistuvat kyselyt suoritetaan mallien kautta.
-- näkymään (view), joka määrittää sovelluksen käyttöliittymän ulkoasun ja tiedon esitysmuodon. Sen kautta lähetään myös käyttäjän syöttämiä tietoja sovellukselle esimerkiksi lomakkeiden kautta.
-- kontrolleriin (controller), joka toimii liimana näkymän ja mallin välissä. Se käsittelee selaimen lähettämät pyynnöt, välittää mallilta saamansa sisällön näkymälle tai pyytää mallia tekemään muutoksia tietokantaan.
+> - näkymään (view), joka määrittää sovelluksen käyttöliittymän ulkoasun ja tiedon esitysmuodon. Sen kautta lähetään myös käyttäjän syöttämiä tietoja sovellukselle esimerkiksi lomakkeiden kautta.
+> - kontrolleriin (controller), joka toimii liimana näkymän ja mallin välissä. Se käsittelee selaimen lähettämät pyynnöt, välittää mallilta saamansa sisällön näkymälle tai pyytää mallia tekemään muutoksia tietokantaan.
 
 (kuvaus kopioitu kurssisivulta)
 
@@ -106,7 +106,7 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [ ] Toteuta get_user_logged_in-metodi
   - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
-- [ ] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
+- [x] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
 - [ ] Pushaa kaikki tekemäsi muutokset repoosi
 
 ### Viikko 5

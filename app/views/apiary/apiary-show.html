@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/forms.html" as forms %}
+
+
   {% if message %}
     <div class="alert alert-success">
         {{message}}
@@ -56,9 +59,8 @@
       </table>
 
       <p>
-        <form method="post" action="{{base_path}}/apiary/{{apiary.apiaryID}}/remove" style="display: inline-block;">
-          <button type="submit" class="btn btn-danger">Poista</button>
-        </form>
+
+        {{forms.destroy_button("#{base_path}/apiary/#{apiary.apiaryID}/remove")}}
 
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/edit" class="btn btn-warning">Muokkaa</a>
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
