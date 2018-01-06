@@ -18,5 +18,27 @@
       }
     }
 
+    public static function find($id){
+       $query = DB::connection()->prepare('
+          SELECT beekeeperid, name
+          FROM beekeeper
+          WHERE
+          beekeeperid = :id
+          LIMIT 1');
+       $query->execute(array('id' => $id));
+       $row = $query->fetch();
+
+       if($row){
+         $user = new User(array(
+           'userID' => $row['beekeeperid'],
+           'name' => $row['name']
+         ));
+
+         return $user;
+       }
+
+       return null;
+     }
+
 
 }

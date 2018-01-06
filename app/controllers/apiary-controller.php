@@ -25,6 +25,7 @@
     public static function saveNew(){
       $params = $_POST;
       $apiary = new Apiary(array(
+        'beekeeperID' => $_SESSION['user'],
         'hiveID' => $params['selectHive'],
         'queenID' => $params['selectQueen'],
         'name' => $params['name'],

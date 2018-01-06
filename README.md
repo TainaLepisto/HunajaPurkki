@@ -87,11 +87,11 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
-- [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Tarha](./app/models/hive.php), [Pesä](./app/models/apiary.php), ), jossa on
+- [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Tarha](./app/models/hive.php), [Pesä](./app/models/apiary.php), ...), jossa on
   - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
   - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
   - [x] tietokohteen olion tietokantaan lisäävä metodi (esim. save)
-- [x] Toteuta malliasi käyttämään kontrolleriin ([Tarha](./app/controllers/hive-controller.php), [Pesä](./app/controllers/apiary-controller.php), ) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [x] Toteuta malliasi käyttämään kontrolleriin ([Tarha](./app/controllers/hive-controller.php), [Pesä](./app/controllers/apiary-controller.php), ...) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
 - [x] Kirjoita [koodikatselmointi](https://github.com/ihamaki/LahjaSovellus/issues/1)
 - [x] Pushaa kaikki muutokset
 
@@ -103,8 +103,8 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] näytä lomakkeissa virhetilanteissa virheilmoitukset
   - [x] täytä kentät käyttäjän antamilla syötteillä
 - [x] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
-  - [ ] Toteuta get_user_logged_in-metodi
-  - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
+  - [x] Toteuta get_user_logged_in-metodi
+  - [x] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
 - [x] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
 - [ ] Pushaa kaikki tekemäsi muutokset repoosi

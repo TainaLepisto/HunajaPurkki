@@ -25,7 +25,11 @@
             END AS comments,
             ai.lastinspected,
             h.hivename
-          FROM apiary AS a
+          FROM (
+            SELECT *
+            FROM apiary
+            WHERE beekeeperid = :beekeeperid
+            ) AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
             FROM apiaryinspection
@@ -38,7 +42,8 @@
             ) AS h
           on a.hiveid = h.hiveid
         ");
-        $query->execute();
+        $query->execute(array('beekeeperid' => $_SESSION['user']));
+
         $rows = $query->fetchAll();
         $apiarys = array();
 
@@ -147,9 +152,9 @@
 
       public function save(){
         // MUISTA RETURNING!
-         $query = DB::connection()->prepare('INSERT INTO apiary (hiveid, queenid, name, picture, location, comments) VALUES (:hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
+         $query = DB::connection()->prepare('INSERT INTO apiary (beekeeperid, hiveid, queenid, name, picture, location, comments) VALUES (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
          // HUOM! syntaksi $olio->kenttä
-         $query->execute(array('hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+         $query->execute(array('beekeeperid' => $this->beekeeperID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
          // napataan talteen olioomme luotu ID tunnus
          $row = $query->fetch();
          $this->apiaryID = $row['apiaryid'];
