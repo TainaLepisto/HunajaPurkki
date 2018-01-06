@@ -3,7 +3,8 @@
 CREATE TABLE beekeeper(
   beekeeperid SERIAL PRIMARY KEY,
   email VARCHAR(50) NOT NULL,
-  password VARCHAR(50) NOT NULL
+  password VARCHAR(50) NOT NULL,
+  name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE hive(

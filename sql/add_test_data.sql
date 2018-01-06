@@ -1,11 +1,11 @@
 -- Lisää INSERT INTO lauseet tähän tiedostoon
 
 -- Beekeeper-taulun testidata
-INSERT INTO beekeeper (email, password)
+INSERT INTO beekeeper (email, password, name)
 VALUES
-('testi@honey.bee', 'hunajata')
+('testi@honey.bee', 'hunajata' ,'Maija')
 ,
-('testi@testi.fi', '123')
+('testi@testi.fi', '123', 'Matti')
 ;
 
 -- Hive taulun testidata

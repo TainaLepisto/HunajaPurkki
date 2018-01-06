@@ -102,7 +102,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Lisää malliisi tarvittavat validaattorit ja estä kontrollereissa virheellisten syötteiden lisääminen tietokantaan.
   - [x] näytä lomakkeissa virhetilanteissa virheilmoitukset
   - [x] täytä kentät käyttäjän antamilla syötteillä
-- [ ] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
+- [x] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
   - [ ] Toteuta get_user_logged_in-metodi
   - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
