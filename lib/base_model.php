@@ -30,12 +30,32 @@
     public function validate_name(){
       $errors = array();
       if($this->name == '' || $this->name == null){
-        $errors[] = 'Nimi ei saa olla tyhjä!';
+        $errors[] = 'Nimi ei saa olla tyhjä';
       }
       if(strlen($this->name) < 3){
-        $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä!';
+        $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä';
       }
+      return $errors;
+    }
 
+    public function validate_picture(){
+      $errors = array();
+      if($this->picture != '' && $this->picture != null && !preg_match('/http/i', $this->picture)){
+        $errors[] = 'Kuvan tulee olla toimiva www-osoite tai tyhjä';
+      }
+      return $errors;
+    }
+
+    public function validate_location(){
+      $errors = array();
+      if($this->location != '' && $this->location != null){
+        $comma = strpos($this->location, ',');
+        $lat = substr($this->location,0, $comma);
+        $long = substr($this->location, $comma+1, strlen($this->location));
+        if (!is_numeric($lat) || !is_numeric($long)){
+          $errors[] = 'Sijainnin tule olla lat,long muodossa tai tyhjä';
+        }
+      }
       return $errors;
     }
 

@@ -5,13 +5,24 @@
 
       public function __construct($attributes){
         parent::__construct($attributes);
-        $this->validators = array('validate_name');
+        $this->validators = array('validate_name', 'validate_picture', 'validate_location');
       }
 
 
       public static function all(){
-        $query = DB::connection()->prepare('
-          SELECT h.*, a.countapiarys
+        $query = DB::connection()->prepare("
+          SELECT
+            h.hiveid,
+            h.beekeeperid,
+            h.name,
+            h.picture,
+            h.location,
+            CASE
+              WHEN LENGTH(comments) > 0
+              THEN  CONCAT(SUBSTRING(h.comments,0,50),'...')
+              ELSE ''
+            END AS comments,
+            a.countapiarys
           FROM hive AS h
           LEFT JOIN (
             SELECT hiveid, count(*) AS countapiarys
@@ -19,7 +30,7 @@
             GROUP BY hiveid
             ) AS a
           ON h.hiveid = a.hiveid
-        ');
+        ");
         $query->execute();
         $rows = $query->fetchAll();
         $hives = array();

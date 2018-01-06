@@ -27,7 +27,9 @@
     <div class="col-sm-4">
       <div class="card border-warning">
 
+        {% if hive.picture %}
         <img class="card-img-top img-fluid img-thumbnail" src="{{hive.picture}}" alt="Kuva tarhasta">
+        {% endif %}
 
         <div class="card-body">
           <h4 class="card-title">{{hive.name}}</h4>

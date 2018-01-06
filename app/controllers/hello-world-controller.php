@@ -24,7 +24,8 @@
       echo 'Hello World!';
 
       $doom = new Hive(array(
-        'name' => 'd'
+        'name' => 'd',
+        'location' => 'irhe'
       ));
       $errors = $doom->errors();
 

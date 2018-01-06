@@ -15,6 +15,14 @@
 
         <h1>{{hive.name}}</h1>
 
+        <h3>
+          {% if hive.location %}
+            <a href="http://www.google.com/maps/place/{{hive.location}}" class="btn btn-outline-dark" target="_blank">{{hive.location}}</a>
+          {% else %}
+            Ei sijaintitietoja
+          {% endif %}
+        </h3>
+
         <p>
           {{hive.comments}}
         </p>
@@ -27,9 +35,12 @@
 
       </div>
 
+      {% if hive.picture %}
       <div class="col-sm-4">
            <img class="img-fluid img-thumbnail" src="{{hive.picture}}" alt="Kuva tarhasta">
       </div>
+      {% endif %}
+
 
     </div>
   </div>
@@ -44,7 +55,9 @@
           <div class="col-sm-4">
             <div class="card border-warning">
 
+              {% if apiary.picture %}
               <img class="card-img-top img-fluid img-thumbnail" src="{{apiary.picture}}" alt="Kuva pesästä">
+              {% endif %}
 
               <div class="card-body">
                 <h4 class="card-title">{{apiary.name}}</h4>
@@ -60,6 +73,11 @@
                       <small class="text-muted">Pesä tarkastettu viimeksi {{apiary.lastInspected}}</small>
                       <br/>
                     </div>
+                {% else %}
+                  <div class="card-footer">
+                    <small class="text-muted">Pesää ei ole tarkastettu</small>
+                    <br/>
+                  </div>
                 {% endif %}
 
             </div>

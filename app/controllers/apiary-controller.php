@@ -31,8 +31,19 @@
         'location' => $params['location'],
         'comments' => $params['comments']
       ));
-      $apiary->save();
-      Redirect::to('/apiary/' . $apiary->apiaryID, array('message' => 'Pesä on lisätty!'));
+
+      // tarkastetaan onko arvot sallittuja
+      $errors = $apiary->errors();
+
+      if(count($errors) == 0){
+          $apiary->save();
+          Redirect::to('/apiary/' . $apiary->apiaryID, array('message' => 'Pesä on lisätty!'));
+      }else{
+          $hives = Hive::all();
+          $queens = Queen::all();
+          View::make('apiary/apiary-new.html', array('errors' => $errors, 'attributes' => $apiary, 'hives' => $hives, 'queens' => $queens));
+      }
+
     }
 
      public static function show($id){

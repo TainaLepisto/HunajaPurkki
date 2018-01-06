@@ -27,7 +27,9 @@
       <div class="col-sm-4">
         <div class="card border-warning">
 
-          <img class="card-img-top img-fluid img-thumbnail" src="{{apiary.picture}}" alt="Kuva pesästä">
+          {% if apiary.picture %}
+            <img class="card-img-top img-fluid img-thumbnail" src="{{apiary.picture}}" alt="Kuva pesästä">
+          {% endif %}
 
           <div class="card-body">
             <h4 class="card-title">{{apiary.name}}</h4>
@@ -44,7 +46,7 @@
               {% if apiary.lastInspected %}
                 <small class="text-muted">Pesä tarkastettu viimeksi {{apiary.lastInspected}}</small>
               {% else %}
-                <small class="text-muted">Pesää ei ole vielä tarkastettu.</small>
+                <small class="text-muted">Pesää ei ole tarkastettu.</small>
               {% endif %}
 
               <br/>
@@ -52,7 +54,7 @@
               {% if apiary.hiveName %}
                 <small class="text-muted">Tarha: {{apiary.hiveName}}</small>
               {% else %}
-                <small class="text-muted">Pesää ei ole kiinnitetty tarhaan</small>
+                <small class="text-muted">Pesää ei ole liitetty tarhaan</small>
               {% endif %}
 
             </p>

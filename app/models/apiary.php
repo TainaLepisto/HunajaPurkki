@@ -5,11 +5,26 @@
 
       public function __construct($attributes){
         parent::__construct($attributes);
+        $this->validators = array('validate_name', 'validate_picture', 'validate_location');
       }
 
       public static function all(){
-        $query = DB::connection()->prepare('
-          SELECT a.*, ai.lastinspected, h.hivename
+        $query = DB::connection()->prepare("
+          SELECT
+            a.apiaryid,
+            a.beekeeperid,
+            a.hiveid,
+            a.queenid,
+            a.name,
+            a.picture,
+            a.location,
+            CASE
+              WHEN LENGTH(a.comments) > 0
+              THEN  CONCAT(SUBSTRING(a.comments,0,50),'...')
+              ELSE ''
+            END AS comments,
+            ai.lastinspected,
+            h.hivename
           FROM apiary AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
@@ -22,7 +37,7 @@
             FROM hive
             ) AS h
           on a.hiveid = h.hiveid
-        ');
+        ");
         $query->execute();
         $rows = $query->fetchAll();
         $apiarys = array();
