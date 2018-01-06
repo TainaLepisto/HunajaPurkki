@@ -3,9 +3,9 @@
 -- Beekeeper-taulun testidata
 INSERT INTO beekeeper (email, password)
 VALUES
-('testi@testi.fi', 'testi123')
+('testi@honey.bee', 'hunajata')
 ,
-('testi2@testi.fi', '123testi')
+('testi@testi.fi', '123')
 ;
 
 -- Hive taulun testidata

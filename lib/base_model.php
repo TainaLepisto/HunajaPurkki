@@ -20,10 +20,24 @@
       $errors = array();
 
       foreach($this->validators as $validator){
-        // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
+        $validator_errors = $this->{$validator}();
+        $errors = array_merge($errors, $validator_errors);
       }
 
       return $errors;
     }
+
+    public function validate_name(){
+      $errors = array();
+      if($this->name == '' || $this->name == null){
+        $errors[] = 'Nimi ei saa olla tyhjä!';
+      }
+      if(strlen($this->name) < 3){
+        $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä!';
+      }
+
+      return $errors;
+    }
+
 
   }

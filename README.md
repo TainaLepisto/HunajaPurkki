@@ -28,10 +28,10 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 ### MVC-malli (model-view-controller)
 
-Web-sovellusten toteutusmalli, jonka tarkoituksena on erottaa näkymä sovelluslogiikasta.
+> Web-sovellusten toteutusmalli, jonka tarkoituksena on erottaa näkymä sovelluslogiikasta.
 Siinä sovellus jaetaan kolmeen osaan:
 
-- malliin (model), joka mahdollistaa tietokannasta haetun tiedon esittämisen sovelluksen kannalta mielekkäässä muodossa, eli yleensä olioina, jolloin kukin malli kuvaa yhtä sovelluksen tietokohteista (esim. Asiakas, Tuote, Opiskelija, jne.). Kaikki tietokantaan kohdistuvat kyselyt suoritetaan mallien kautta.
+> - malliin (model), joka mahdollistaa tietokannasta haetun tiedon esittämisen sovelluksen kannalta mielekkäässä muodossa, eli yleensä olioina, jolloin kukin malli kuvaa yhtä sovelluksen tietokohteista (esim. Asiakas, Tuote, Opiskelija, jne.). Kaikki tietokantaan kohdistuvat kyselyt suoritetaan mallien kautta.
 - näkymään (view), joka määrittää sovelluksen käyttöliittymän ulkoasun ja tiedon esitysmuodon. Sen kautta lähetään myös käyttäjän syöttämiä tietoja sovellukselle esimerkiksi lomakkeiden kautta.
 - kontrolleriin (controller), joka toimii liimana näkymän ja mallin välissä. Se käsittelee selaimen lähettämät pyynnöt, välittää mallilta saamansa sisällön näkymälle tai pyytää mallia tekemään muutoksia tietokantaan.
 
@@ -87,12 +87,12 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
 ### Viikko 3
-- [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Hive](./app/models/hive.php), [Apiary](./app/models/apiary.php), ), jossa on
+- [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Tarha](./app/models/hive.php), [Pesä](./app/models/apiary.php), ), jossa on
   - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
   - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
   - [x] tietokohteen olion tietokantaan lisäävä metodi (esim. save)
-- [x] Toteuta malliasi käyttämään kontrolleriin ([Hive](./app/controllers/hive-controller.php), [Apiary](./app/controllers/apiary-controller.php), ) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
-- [ ] Kirjoita koodikatselmointi
+- [x] Toteuta malliasi käyttämään kontrolleriin ([Tarha](./app/controllers/hive-controller.php), [Pesä](./app/controllers/apiary-controller.php), ) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [x] Kirjoita [koodikatselmointi](https://github.com/ihamaki/LahjaSovellus/issues/1)
 - [x] Pushaa kaikki muutokset
 
 ### Viikko 4
@@ -106,10 +106,16 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [ ] Toteuta get_user_logged_in-metodi
   - [ ] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
-- [ ] käyttäjätunnus ja salasana, jolla voi kirjautua sisään sovellukseesi
+- [ ] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
 - [ ] Pushaa kaikki tekemäsi muutokset repoosi
 
 ### Viikko 5
-.
-.
-.
+- [ ] Toteuta käyttäjän uloskirjautuminen ja estä kirjautumattoman käyttäjän pääsy sivuille, jotka vaativat kirjautumisen.
+- [ ] Edistä sovellustasi ja pidä koodi siistinä noudattamalla selkeää kansiorakennetta ja järkevää nimeämistä tiedostojen, luokkien ja metodien nimissä.
+  - [ ] ainakin kahdelle tietokohteelle on toteutettu sivuja. Kaikkia CRUD-nelikon osia ei kuitenkaan tarvitse toteuttaa, listaus- ja esittelysivut uudelle tietokohteelle riittävät hyvin.
+  - [ ] toimintojen tulee toimia ja virhetilanteissa käyttäjälle täytyy antaa järkeviä virheilmoituksia.
+- [ ] Lisää dokumentaatioosi
+  - [ ] järjestelmän-yleisrakenne-osio
+  - [ ] käyttöliittymän ja järjestelmän komponentteja kuvaa kaavio.
+- [ ] Kirjoita koodikatselmointi
+- [ ] Pushaa kaikki muutokset

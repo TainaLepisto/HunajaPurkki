@@ -29,12 +29,17 @@
         'comments' => $params['comments']
       ));
 
-      // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-      $hive->save();
+      // tarkastetaan onko arvot sallittuja
+      $errors = $hive->errors();
 
-      // Ohjataan käyttäjä lisäyksen jälkeen esittelysivulle
-      Redirect::to('/hive/' . $hive->hiveID, array('message' => 'Tarha on lisätty!'));
-    }
+      if(count($errors) == 0){
+        $hive->save();
+        Redirect::to('/hive/' . $hive->hiveID, array('message' => 'Tarha on lisätty!'));
+      }else{
+        View::make('hive/hive-new.html', array('errors' => $errors, 'attributes' => $hive));
+      }
+
+     }
 
 
      public static function show($id){

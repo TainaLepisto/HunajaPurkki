@@ -22,5 +22,14 @@
     public static function sandbox(){
       // Testaa koodiasi täällä
       echo 'Hello World!';
+
+      $doom = new Hive(array(
+        'name' => 'd'
+      ));
+      $errors = $doom->errors();
+
+      Kint::dump($errors);
     }
+
+
   }
