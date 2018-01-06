@@ -3,6 +3,8 @@
   class ApiaryController extends BaseController{
 
     public static function listAll(){
+      self::check_logged_in();
+
       $apiarys = Apiary::all();
    	  View::make('apiary/apiary-list.html', array('apiarys' => $apiarys));
     }
