@@ -46,8 +46,8 @@
                   >{{hive.name}}</option>
             {% endfor %}
 
-            <option value="0"
-            {% if apiary.hiveID == hive.hiveID %}
+            <option value="-1"
+            {% if apiary.hiveID == '-1' %}
               selected
             {% endif %}
             >Ei tarhaa</option>
@@ -66,8 +66,8 @@
               >{{queen.name}}</option>
             {% endfor %}
 
-            <option value="0"
-            {% if apiary.queenID == queen.queenID %}
+            <option value="-1"
+            {% if apiary.queenID == '-1' %}
               selected
             {% endif %}
             >Ei emoa</option>

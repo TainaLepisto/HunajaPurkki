@@ -41,7 +41,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 
 ## Eteneminen
 
-### Viikko 1
+### Viikko 1 - valmis
 - [x] Valitse harjoitustyösi aihe
 - [x] Pystytä versionhallinta
 - [x] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
@@ -50,7 +50,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Pystytä työympäristö
 - [x] Rekisteröidy labtooliin
 
-### Viikko 2
+### Viikko 2 - kesken
 - [x] Suunnittele käyttöliittymäsi ja toteuta niistä staattiset HTML-sivut
   - [x] Suunnittele etusivu
     - [tunnusten luonti](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/signup)
@@ -88,7 +88,7 @@ Siinä sovellus jaetaan kolmeen osaan:
     - [x] Lisää testidatan lisäyslauseet [add_test_data.sql -tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
   - [x] Pushaa kaikki tekemäsi muutokset Gittiin
 
-### Viikko 3
+### Viikko 3 - valmis
 - [x] Toteuta sovellukseesi vähintään yksi malliluokka ([Tarha](./app/models/hive.php), [Pesä](./app/models/apiary.php), ...), jossa on
   - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
   - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
@@ -97,7 +97,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Kirjoita [koodikatselmointi](https://github.com/ihamaki/LahjaSovellus/issues/1)
 - [x] Pushaa kaikki muutokset
 
-### Viikko 4
+### Viikko 4 - valmis
 - [x] Lisää malliluokkaasi metodi ja käyttäjälle toiminnot tietokohteen olion
   - [x] muokkaamiselle (esim. update)
   - [x] poistolle (esim. destroy)
@@ -107,17 +107,16 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Toteuta malliluokka sovelluksen käyttäjälle ja toteuta käyttäjän kirjautuminen.
   - [x] Toteuta get_user_logged_in-metodi
   - [x] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
-- [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
+- [x] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
 - [x] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
 - [x] Pushaa kaikki tekemäsi muutokset repoosi
 
-### Viikko 5
+### Viikko 5 - valmis
 - [x] Toteuta käyttäjän uloskirjautuminen ja estä kirjautumattoman käyttäjän pääsy sivuille, jotka vaativat kirjautumisen.
 - [x] Edistä sovellustasi ja pidä koodi siistinä noudattamalla selkeää kansiorakennetta ja järkevää nimeämistä tiedostojen, luokkien ja metodien nimissä.
   - [x] ainakin kahdelle tietokohteelle on toteutettu sivuja. Kaikkia CRUD-nelikon osia ei kuitenkaan tarvitse toteuttaa, listaus- ja esittelysivut uudelle tietokohteelle riittävät hyvin.
   - [x] toimintojen tulee toimia ja virhetilanteissa käyttäjälle täytyy antaa järkeviä virheilmoituksia.
-- [ ] Lisää dokumentaatioosi
-  - [ ] järjestelmän-yleisrakenne-osio
-  - [ ] käyttöliittymän ja järjestelmän komponentteja kuvaava kaavio.
-- [ ] Kirjoita koodikatselmointi
-- [ ] Pushaa kaikki muutokset
+- [x] Lisää dokumentaatioosi
+  - [x] järjestelmän-yleisrakenne-osio
+  - [x] käyttöliittymän ja järjestelmän komponentteja kuvaava kaavio.
+- [x] Pushaa kaikki muutokset

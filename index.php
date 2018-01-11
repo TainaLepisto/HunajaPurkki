@@ -35,6 +35,6 @@
   require 'config/routes.php';
 
   // staattiset reitit on omassaan
-  require 'config/routes-static.php';
+  require 'config/routes_static.php';
 
   $routes->run();

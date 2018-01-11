@@ -35,8 +35,8 @@
         'comments' => $params['comments']
       ));
 
-      $apiary->validateHive();
-      $apiary->validateQueen();
+      $apiary->validateHiveForDB();
+      $apiary->validateQueenForDB();
 
       // tarkastetaan onko arvot sallittuja
       $errors = $apiary->errors();
@@ -53,6 +53,8 @@
 
      public static function show($id){
        $apiary = Apiary::find($id);
+       $apiary->validateHiveForView();
+       $apiary->validateQueenForView();
        View::make('apiary/apiary_show.html', array('apiary' => $apiary));
      }
 
@@ -77,8 +79,8 @@
          'comments' => $params['comments']
        ));
 
-       $apiary->validateHive();
-       $apiary->validateQueen();
+       $apiary->validateHiveForDB();
+       $apiary->validateQueenForDB();
 
        // tarkastetaan onko arvot sallittuja
        $errors = $apiary->errors();

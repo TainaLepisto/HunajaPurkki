@@ -146,26 +146,23 @@
         }
 
         return $apiarys;
-
       }
 
 
       public function save(){
-        // MUISTA RETURNING!
-         $query = DB::connection()->prepare('INSERT INTO apiary (beekeeperid, hiveid, queenid, name, picture, location, comments) VALUES (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
-         // HUOM! syntaksi $olio->kenttä
-         $query->execute(array('beekeeperid' => $this->beekeeperID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
-         // napataan talteen olioomme luotu ID tunnus
+          $query = DB::connection()->prepare('INSERT INTO apiary (beekeeperid, hiveid, queenid, name, picture, location, comments) VALUES (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
+          $query->execute(array('beekeeperid' => $this->beekeeperID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+
          $row = $query->fetch();
          $this->apiaryID = $row['apiaryid'];
        }
 
        public function update(){
-          $query = DB::connection()->prepare('
-              UPDATE apiary
-                SET hiveid=:hiveid, queenid=:queenid, name=:name, picture=:picture, location=:location, comments=:comments
-              WHERE apiaryid = :id ');
-          $query->execute(array('id' => $this->apiaryID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+           $query = DB::connection()->prepare('
+               UPDATE apiary
+                 SET hiveid=:hiveid, queenid=:queenid, name=:name, picture=:picture, location=:location, comments=:comments
+               WHERE apiaryid = :id ');
+           $query->execute(array('id' => $this->apiaryID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
         }
 
         public function remove(){
@@ -173,14 +170,24 @@
            $query->execute(array('id' => $this->apiaryID));
          }
 
-        public function validateHive(){
-          if ($this->$hiveID == '-1'){
-            $this->$hiveID = '';
+        public function validateHiveForDB(){
+          if ($this->hiveID == '-1'){
+            $this->hiveID = 'null';
           }
         }
-        public function validateQueen(){
-          if ($this->$queenID == '-1'){
-            $this->$queenID = '';
+        public function validateQueenForDB(){
+          if ($this->queenID == '-1'){
+            $this->queenID = 'null';
+          }
+        }
+        public function validateHiveForView(){
+          if ($this->hiveID == ''){
+            $this->hiveID = '-1';
+          }
+        }
+        public function validateQueenForView(){
+          if ($this->queenID == ''){
+            $this->queenID = '-1';
           }
         }
 

@@ -53,8 +53,8 @@
               >{{hive.name}}</option>
         {% endfor %}
 
-        <option value="0"
-        {% if attributes.hiveID == '0' %}
+        <option value="-1"
+        {% if attributes.hiveID == '-1' %}
           selected
         {% endif %}
         >Ei tarhaa</option>
@@ -73,8 +73,8 @@
           >{{queen.name}}</option>
         {% endfor %}
 
-        <option value="0"
-        {% if attributes.queenID == '0' %}
+        <option value="-1"
+        {% if attributes.queenID == '-1' %}
           selected
         {% endif %}
         >Ei emoa</option>
