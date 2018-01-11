@@ -25,7 +25,7 @@
 
     public static function check_need_for_login(){
       if(isset($_SESSION['user'])){
-        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name));
+        Redirect::to('/login', array('message' => 'Tervetuloa ' . $_SESSION['user']));
       }
     }
 

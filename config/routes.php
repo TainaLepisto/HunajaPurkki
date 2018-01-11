@@ -34,6 +34,10 @@ function check_need_for_login(){
     UserController::handle_login();
   });
 
+  $routes->post('/signup', function() {
+    UserController::handle_signup();
+  });
+
   $routes->post('/logout', function() {
     UserController::handle_logout();
   });

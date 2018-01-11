@@ -1,23 +1,134 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block content %}
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="{{base_path}}/assets/manifest.json">
+
+    <link rel="manifest" href="{{base_path}}/assets/manifest.webapp">
+    <link rel="shortcut icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+    <link rel="icon" href="{{base_path}}/assets/images/icon.png" type="image/png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="HunajaPurkki">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="HunajaPurkki">
+    <link rel="apple-touch-icon" href="{{base_path}}/assets/images/icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="{{base_path}}/assets/images/icon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+
+    <title>
+      {% block title %}
+        HunajaPurkki
+      {% endblock %}
+    </title>
+
+    {% block head %}
+      <!-- Bootstrap (tyylitiedosto) -->
+      <link href="{{base_path}}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Oma tyylitiedostomme -->
+      <link href="{{base_path}}/assets/css/site.css" rel="stylesheet">
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!-- Sovelluksen logo ja nimi -->
+          <img src="{{base_path}}/assets/images/icon.png" height="50" />
+          HunajaPurkki
+        </div>
+      </div>
+    </nav>
+
+    <div id="main-container">
+
   <div class="page-header">
     <h1>Tervetuloa HunajaPurkkiin!</h1>
   </div>
 
+  {% if error %}
+    <div class="alert alert-danger">
+      {{error}}
+    </div>
+  {% endif %}
+
+  {% if message %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+  {% endif %}
 
   <div class="form-signin-container">
 
-        <form class="form-signin">
-          <h2 class="form-signin-heading">Luo itsellesi tunnukset</h2>
-          <label for="inputEmail" class="sr-only">Sähköposti</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="joku@oma.fi" required="" autofocus="">
-          <label for="inputPassword" class="sr-only">Salasana</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="xxxxxx" required="">
-          <label for="inputPassword2" class="sr-only">Salasana uudestaan</label>
-          <input type="password" id="inputPassword2" class="form-control" placeholder="xxxxxx" required="">
+    <form class="form-signin" method="post" action="{{base_path}}/signup">
 
-          <button class="btn btn-lg btn-warning btn-block" type="submit"><span class="glyphicon glyphicon-log-in"></span>Luo tunnukset</button>
+          <h2 class="form-signin-heading">Luo itsellesi tunnukset</h2>
+
+          <div class="form-group">
+            <label>Nimi</label>
+            <input
+              type="text"
+              name="inputBeekeeperName"
+              class="form-control"
+              required=""
+              autofocus=""
+              value="{{userName}}"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Sähköposti</label>
+            <input
+              type="email"
+              name="inputEmail"
+              class="form-control"
+              required=""
+              autofocus=""
+              value="{{userEmail}}"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Salasana</label>
+            <input
+              type="password"
+              name="inputPassword"
+              class="form-control"
+              required=""
+            >
+          </div>
+
+          <div class="form-group">
+            <label>Salasana uudestaan</label>
+            <input
+              type="password"
+              name="inputPassword2"
+              class="form-control"
+              required=""
+            >
+          </div>
+
+          <div class="form-group">
+            {{links.return_button()}}
+            <button class="btn btn-lg btn-warning btn-block" type="submit">
+              <span class="glyphicon glyphicon-user"></span>
+                Luo tunnukset
+            </button>
+          </div>
+
         </form>
 
 
@@ -26,5 +137,15 @@
 
 
 
+    {% block body %}
+      <!-- jQuery -->
+      <script src="{{base_path}}/assets/js/jquery.min.js"></script>
 
-{% endblock %}
+      <!-- Bootstrap (skriptitiedosto) -->
+      <script src="{{base_path}}/assets/bootstrap/js/bootstrap.min.js"></script>
+
+      <!-- Oma skriptitiedostomme -->
+      <script src="{{base_path}}/assets/js/site.js"></script>
+    {% endblock %}
+  </body>
+  </html>
