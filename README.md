@@ -2,7 +2,7 @@
 
 HunajaPurkki on mehiläistarhaajien apuväline mehiläisten hoitoon. Sovellukseen tallennetaan tiedot pesistä ja niiden tarkastuksista. Sovellus on suunnattu suomalaisen mehiläistarhaajan käyttöön. Sovellus muistuttaa pesien tarkastuksista säännöllisin väliajoin ja pitää kirjaa myös mahdollisista taudeista.
 
-[Sovelluksen dokumentaatio Gitissä](./doc/HunajaPurkki.pdf)
+[Sovelluksen dokumentaatio Gitissä](./doc/hunajapurkki.pdf)
 
 [Sovellus julkaistu laitoksen user-palvelimelle](http://tainalep.users.cs.helsinki.fi/hunajapurkki/)
 
@@ -44,7 +44,7 @@ Siinä sovellus jaetaan kolmeen osaan:
 ### Viikko 1 - valmis
 - [x] Valitse harjoitustyösi aihe
 - [x] Pystytä versionhallinta
-- [x] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/HunajaPurkki.pdf)
+- [x] Dokumentoi perusasiat [doc-kansioon yhteen pdf-tiedostoon](./doc/hunajapurkki.pdf)
   - [x] Johdanto
   - [x] Käyttötapaukset
 - [x] Pystytä työympäristö
@@ -93,7 +93,7 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] kaikki tietokohteen oliot tietokannasta hakeva metodi (esim. all)
   - [x] tietyllä id:llä varustetun tietokohteen olion tietokannasta hakeva metodi (esim. find)
   - [x] tietokohteen olion tietokantaan lisäävä metodi (esim. save)
-- [x] Toteuta malliasi käyttämään kontrolleriin ([Tarha](./app/controllers/hive-controller.php), [Pesä](./app/controllers/apiary-controller.php), ...) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
+- [x] Toteuta malliasi käyttämään kontrolleriin ([Tarha](./app/controllers/hive_controller.php), [Pesä](./app/controllers/apiary_controller.php), ...) metodit, jotka esittävät tietokohteen listaus-, esittely- ja lisäysnäkymän. Toteuta myös kontrolleriisi metodi, joka mahdollistaa tietokohteen olion lisäämisen tietokantaan käyttäjän lähettämän lomakkeen tiedoilla.
 - [x] Kirjoita [koodikatselmointi](https://github.com/ihamaki/LahjaSovellus/issues/1)
 - [x] Pushaa kaikki muutokset
 
