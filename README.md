@@ -18,6 +18,8 @@ Kurssin tarkoituksena on tuottaa toimiva, käytettävä, siististi koodattu ja h
 
 - HTML ([Hypertext Markup Language, eli hypertekstin merkintäkieli)](https://fi.wikipedia.org/wiki/HTML))
 - PHP ([PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages](https://www.w3schools.com/php/))
+- JavaScript ([programming language of HTML and the Web](https://www.w3schools.com/js/))
+- jQuery ([fast, small, and feature-rich JavaScript library](http://jquery.com/))
 - PostgreSQL ([powerful, open source object-relational database system](http://www.tutorialspoint.com/postgresql/index.htm))
 - SQL ([Structured Query Language, lets you access and manipulate databases](https://www.w3schools.com/sql/sql_intro.asp))
 - Bootstrap ([open source toolkit for developing with HTML, CSS, and JS](http://getbootstrap.com/))
@@ -107,15 +109,15 @@ Siinä sovellus jaetaan kolmeen osaan:
   - [x] käytä kirjautuneen käyttäjän tietoa hyväksi näkymissä ja malleissa
 - [ ] Kirjoita alustava käynnistys- / käyttöohje dokumentaatioosi.
 - [x] käyttäjätunnus (testi@honey.bee) ja salasana (hunajata), jolla voi kirjautua sisään sovellukseesi
-- [ ] Pushaa kaikki tekemäsi muutokset repoosi
+- [x] Pushaa kaikki tekemäsi muutokset repoosi
 
 ### Viikko 5
-- [ ] Toteuta käyttäjän uloskirjautuminen ja estä kirjautumattoman käyttäjän pääsy sivuille, jotka vaativat kirjautumisen.
-- [ ] Edistä sovellustasi ja pidä koodi siistinä noudattamalla selkeää kansiorakennetta ja järkevää nimeämistä tiedostojen, luokkien ja metodien nimissä.
-  - [ ] ainakin kahdelle tietokohteelle on toteutettu sivuja. Kaikkia CRUD-nelikon osia ei kuitenkaan tarvitse toteuttaa, listaus- ja esittelysivut uudelle tietokohteelle riittävät hyvin.
-  - [ ] toimintojen tulee toimia ja virhetilanteissa käyttäjälle täytyy antaa järkeviä virheilmoituksia.
+- [x] Toteuta käyttäjän uloskirjautuminen ja estä kirjautumattoman käyttäjän pääsy sivuille, jotka vaativat kirjautumisen.
+- [x] Edistä sovellustasi ja pidä koodi siistinä noudattamalla selkeää kansiorakennetta ja järkevää nimeämistä tiedostojen, luokkien ja metodien nimissä.
+  - [x] ainakin kahdelle tietokohteelle on toteutettu sivuja. Kaikkia CRUD-nelikon osia ei kuitenkaan tarvitse toteuttaa, listaus- ja esittelysivut uudelle tietokohteelle riittävät hyvin.
+  - [x] toimintojen tulee toimia ja virhetilanteissa käyttäjälle täytyy antaa järkeviä virheilmoituksia.
 - [ ] Lisää dokumentaatioosi
   - [ ] järjestelmän-yleisrakenne-osio
-  - [ ] käyttöliittymän ja järjestelmän komponentteja kuvaa kaavio.
+  - [ ] käyttöliittymän ja järjestelmän komponentteja kuvaava kaavio.
 - [ ] Kirjoita koodikatselmointi
 - [ ] Pushaa kaikki muutokset

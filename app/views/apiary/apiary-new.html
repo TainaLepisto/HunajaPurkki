@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/links.html" as links %}
+
+
   <h1>Lisää uusi mehiläispesä</h1>
 
   {% if errors %}
@@ -85,8 +88,8 @@
     </div>
 
     <div class="form-group">
-      <a href="javascript:history.go(-1)" class="btn btn-warning">Peruuta ja palaa edelliselle sivulle</a>
-      <button type="submit" class="btn btn-success">Lisää</button>
+      {{links.return_button()}}
+      <button type="submit" class="btn btn-success">Lisää uusi pesä</button>
     </div>
 
 

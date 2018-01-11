@@ -65,6 +65,13 @@
     </div>
   {% endif %}
 
+  {% if message %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+  {% endif %}
+
+  
   <div class="form-signin-container">
 
         <form class="form-signin" method="post" action="{{base_path}}/login">

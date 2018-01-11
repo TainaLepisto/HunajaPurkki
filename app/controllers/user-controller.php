@@ -8,12 +8,17 @@
       $user = User::authenticate($params['inputEmail'], $params['inputPassword']);
 
       if(!$user){
-        View::make('home.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'username' => $params['inputEmail']));
+        View::make('home.html', array('error' => 'Väärä käyttäjätunnus tai salasana', 'username' => $params['inputEmail']));
       }else{
         $_SESSION['user'] = $user->userID;
 
         Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name));
       }
+    }
+
+    public static function handele_logout(){
+      $_SESSION['user'] = null;
+      Redirect::to('/', array('message' => 'Olet kirjautunut ulos'));
     }
 
     public static function login(){

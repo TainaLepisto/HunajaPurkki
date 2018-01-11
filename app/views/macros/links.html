@@ -1,0 +1,6 @@
+
+
+{% macro return_button(link, text) %}
+<a href={{text|default('javascript:history.go(-1)')}} class="btn btn-warning">
+  {{text|default('Peruuta ja palaa edelliselle sivulle')}}</a>
+{% endmacro %}

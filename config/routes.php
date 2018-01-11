@@ -1,143 +1,161 @@
 <?php
 
+// kurssin testireitti
+$routes->get('/hiekkalaatikko', function() {
+  HelloWorldController::sandbox();
+});
+// kannan testireitti
+  $routes->get('/tietokantayhteys', function(){
+    DB::test_connection();
+  });
+
+
+
+// kirjautumisen tilan tarkastajat
+function check_logged_in(){
+  BaseController::check_logged_in();
+}
+
+function check_need_for_login(){
+  BaseController::check_need_for_login();
+}
+
+
 // Yleiset reitit
-  $routes->get('/', function() {
+  $routes->get('/', 'check_need_for_login', function() {
     HelloWorldController::index();
-  });
-
-  $routes->get('/hiekkalaatikko', function() {
-    HelloWorldController::sandbox();
-  });
-
-  $routes->post('/login', function() {
-    UserController::handle_login();
-  });
-
-  $routes->get('/login', function() {
-    UserController::login();
   });
 
   $routes->get('/createLogin', function() {
     HelloWorldController::signup();
   });
 
-  $routes->get('/reminder/new', function() {
+  $routes->post('/login', function() {
+    UserController::handle_login();
+  });
+
+  $routes->post('/logout', function() {
+    UserController::handle_logout();
+  });
+
+  $routes->get('/login', 'check_logged_in', function() {
+    UserController::login();
+  });
+
+
+  $routes->get('/reminder/new', 'check_logged_in', function() {
     HelloWorldController::createReminder();
   });
 
-// kannan testireitti
-  $routes->get('/tietokantayhteys', function(){
-    DB::test_connection();
-  });
 
 // Tarhaan (HIVE) liittyvät reitit
-  $routes->get('/hive', function() {
+  $routes->get('/hive', 'check_logged_in', function() {
     HiveController::listAll();
   });
 
-  $routes->post('/hive/new', function(){
+  $routes->post('/hive/new', 'check_logged_in', function(){
     HiveController::saveNew();
   });
 
-  $routes->get('/hive/new', function(){
+  $routes->get('/hive/new', 'check_logged_in', function(){
     HiveController::create();
   });
 
-  $routes->get('/hive/:id', function($id) {
+  $routes->get('/hive/:id', 'check_logged_in', function($id) {
     HiveController::show($id);
   });
 
-  $routes->get('/hive/:id/edit', function($id) {
+  $routes->get('/hive/:id/edit', 'check_logged_in', function($id) {
     HiveController::edit($id);
   });
 
-  $routes->post('/hive/:id/edit', function($id) {
+  $routes->post('/hive/:id/edit', 'check_logged_in', function($id) {
     HiveController::update($id);
   });
 
-  $routes->post('/hive/:id/remove', function($id) {
+  $routes->post('/hive/:id/remove', 'check_logged_in', function($id) {
     HiveController::remove($id);
   });
 
 // Pesään (APIARY) liittyvät reitit
-  $routes->get('/apiary', function() {
+  $routes->get('/apiary', 'check_logged_in', function() {
     ApiaryController::listAll();
   });
 
-  $routes->get('/apiary/new/:id', function($id){
+  $routes->get('/apiary/new/:id', 'check_logged_in', function($id){
     ApiaryController::createForHive($id);
   });
 
-  $routes->get('/apiary/new', function(){
+  $routes->get('/apiary/new', 'check_logged_in', function(){
     ApiaryController::create();
   });
 
-  $routes->post('/apiary', function(){
+  $routes->post('/apiary', 'check_logged_in', function(){
     ApiaryController::saveNew();
   });
 
-  $routes->get('/apiary/:id', function($id) {
+  $routes->get('/apiary/:id', 'check_logged_in', function($id) {
     ApiaryController::show($id);
   });
 
-  $routes->get('/apiary/:id/edit', function($id) {
+  $routes->get('/apiary/:id/edit', 'check_logged_in', function($id) {
     ApiaryController::edit($id);
   });
 
-  $routes->post('/apiary/:id/edit', function($id) {
+  $routes->post('/apiary/:id/edit', 'check_logged_in', function($id) {
     ApiaryController::update($id);
   });
 
-  $routes->post('/apiary/:id/remove', function($id) {
+  $routes->post('/apiary/:id/remove', 'check_logged_in', function($id) {
     ApiaryController::remove($id);
   });
 
-  $routes->get('/apiary/:id/inspection', function($id) {
+  $routes->get('/apiary/:id/inspection', 'check_logged_in', function($id) {
     ApiaryController::inspection($id);
   });
 
-  $routes->get('/apiary/:id/inspectionform', function($id) {
+  $routes->get('/apiary/:id/inspectionform', 'check_logged_in', function($id) {
     ApiaryController::inspectionForm($id);
   });
 
 // EMOON (QUEEN) liittyvät reitit
-  $routes->get('/queen', function() {
+  $routes->get('/queen', 'check_logged_in', function() {
     QueenController::listAll();
   });
 
-  $routes->get('/queen/new', function(){
+  $routes->get('/queen/new', 'check_logged_in', function(){
     QueenController::create();
   });
 
-  $routes->get('/queen/1', function() {
+  $routes->get('/queen/1', 'check_logged_in', function() {
     QueenController::show();
   });
 
-  $routes->get('/queen/1/edit', function() {
+  $routes->get('/queen/1/edit', 'check_logged_in', function() {
     QueenController::edit();
   });
 
-  $routes->get('/queen/1/inspection', function() {
+  $routes->get('/queen/1/inspection', 'check_logged_in', function() {
     QueenController::inspection();
   });
 
-  $routes->get('/queen/1/inspectionform', function() {
+  $routes->get('/queen/1/inspectionform', 'check_logged_in', function() {
     QueenController::inspectionForm();
   });
 
 // Tarkastuksiin (inspection) liittyvät reitit
-  $routes->get('/inspection', function() {
+  $routes->get('/inspection', 'check_logged_in', function() {
     InspectionController::listAll();
   });
 
-  $routes->get('/inspection/new', function(){
+  $routes->get('/inspection/new', 'check_logged_in', function(){
     InspectionController::create();
   });
 
-  $routes->get('/inspection/1', function() {
+  $routes->get('/inspection/1', 'check_logged_in', function() {
     InspectionController::show();
   });
 
-  $routes->get('/inspection/1/edit', function() {
+  $routes->get('/inspection/1/edit', 'check_logged_in', function() {
     InspectionController::edit();
   });

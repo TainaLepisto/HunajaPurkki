@@ -3,8 +3,6 @@
   class ApiaryController extends BaseController{
 
     public static function listAll(){
-      self::check_logged_in();
-
       $apiarys = Apiary::all();
    	  View::make('apiary/apiary-list.html', array('apiarys' => $apiarys));
     }
@@ -47,7 +45,6 @@
           $queens = Queen::all();
           View::make('apiary/apiary-new.html', array('errors' => $errors, 'attributes' => $apiary, 'hives' => $hives, 'queens' => $queens));
       }
-
     }
 
      public static function show($id){
@@ -86,7 +83,6 @@
            $queens = Queen::all();
            View::make('apiary/apiary-edit.html', array('errors' => $errors, 'apiary' => $apiary, 'hives' => $hives, 'queens' => $queens));
        }
-
      }
 
 
