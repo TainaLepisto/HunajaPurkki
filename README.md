@@ -82,7 +82,7 @@ Siinä sovellus jaetaan kolmeen osaan:
     - [muistutus](http://tainalep.users.cs.helsinki.fi/hunajapurkki/static/reminder/new)
     - tarkastuslomakkeet - KESKEN
   - [x] Ota tietokanta käyttöön ja dokumentoi se
-    - [x] Lisää [dokumentaatioon](./doc/HunajaPurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
+    - [x] Lisää [dokumentaatioon](./doc/hunajapurkki.pdf) järjestelmän tietosisältö osio ja relaatiotietokantakaavio
     - [x] Lisää tietokantataulujen pystytyslauseet [create_tables.sql -tiedostoon](./sql/create_tables.sql). Pystytä näillä taulut tietokantaan.
     - [x] Lisää tietokantataulujen poistolauseet [drop_tables.sql -tiedostoon](./sql/drop_tables.sql).
     - [x] Lisää testidatan lisäyslauseet [add_test_data.sql -tiedostoon](./sql/add_test_data.sql). Aja testidata [tietokantaan](http://tainalep.users.cs.helsinki.fi/hunajapurkki/tietokantayhteys).
