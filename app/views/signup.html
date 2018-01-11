@@ -90,7 +90,7 @@
           </div>
 
           <div class="form-group">
-            <label>Sähköposti</label>
+            <label>Sähköposti (toimii käyttäjätunnuksena)</label>
             <input
               type="email"
               name="inputEmail"
@@ -122,8 +122,7 @@
           </div>
 
           <div class="form-group">
-            {{links.return_button()}}
-            <button class="btn btn-lg btn-warning btn-block" type="submit">
+          <button class="btn btn-lg btn-warning btn-block" type="submit">
               <span class="glyphicon glyphicon-user"></span>
                 Luo tunnukset
             </button>
@@ -131,6 +130,9 @@
 
         </form>
 
+      <br/>
+      <a href={{text|default('javascript:history.go(-1)')}} class="btn btn-info">
+        {{text|default('Peruuta ja palaa edelliselle sivulle')}}</a>
 
   </div>
 
