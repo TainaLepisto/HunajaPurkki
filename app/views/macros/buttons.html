@@ -1,0 +1,17 @@
+
+{% macro destroy_button(action, text, confirm_text) %}
+  <form
+    method="post"
+    action="{{action}}"
+    style="display: inline-block;"
+    class="destroy-form"
+    data-confirm={{confirm_text|default('Haluatko varmasti poistaa? Tietoa ei voi tämän jälkeen palauttaa')}}
+  >
+    <button type="submit" class="btn btn-danger">{{text|default('Poista')}}</button>
+  </form>
+{% endmacro %}
+
+{% macro return_button(link, text) %}
+<a href={{text|default('javascript:history.go(-1)')}} class="btn btn-warning">
+  {{text|default('Peruuta ja palaa edelliselle sivulle')}}</a>
+{% endmacro %}

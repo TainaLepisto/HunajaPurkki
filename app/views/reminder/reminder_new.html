@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% import "macros/buttons.html" as buttons %}
+
+
+  <h1>Lisää uusi muistutus</h1>
+
+  {% if errors %}
+    <div class="alert alert-danger">
+      <h2>Tarkasta seuraavat tiedot:</h2>
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+
+  <form method="post" action="{{base_path}}/reminder">
+
+    <div class="form-group">
+      <label>Otsikko</label>
+      <input type="text" class="form-control" name="title" value="{{attributes.title}}">
+    </div>
+
+    <div class="form-group">
+      <label for="selectApiary">Mihin pesiin muistutus tehdään?</label>
+      <select multiple class="form-control" name="selectApiarys[]" >
+        {% for apiary in apiarys %}
+          <option value="{{apiary.apiaryID}}"
+            {% if attributes.selectApiarys == apiary.apiaryID %}
+              selected
+            {% endif %}
+          >{{apiary.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea class="form-control" name="comments">{{attributes.comments}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Milloin muistutetaan?</label>
+        <input
+          class="form-control"
+          name="reminderdate"
+          type="date"
+          value="{{attributes.reminderdate}}"
+          min="2015-01-01"
+          max="2020-12-31"
+        >
+    </div>
+
+    <div class="form-group">
+      {{buttons.return_button()}}
+      <button type="submit" class="btn btn-success">Lisää uusi muistutus</button>
+    </div>
+
+  </form>
+
+{% endblock %}

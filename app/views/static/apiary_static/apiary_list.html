@@ -1,0 +1,80 @@
+{% extends "static/base_static.html" %}
+{% block content %}
+
+  <h1>Mehiläispesät</h1>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Lisää uusi pesä</h4>
+          <p class="card-text">Uuden pesän luontilomake.</p>
+
+          <a href="#" class="btn btn-success">Luo uusi pesä</a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Mökkimetsän hunajapesä nro 1</h4>
+          <p class="card-text">Tämä on se lähimpänä mökkiä oleva.</p>
+
+          <a href="#1" class="btn btn-warning">Pesän tiedot</a>
+          <a href="#" class="btn btn-info">Tarkasta pesä</a>
+
+        </div>
+
+        <div class="card-footer">
+          <p>
+            <small class="text-muted">Pesä tarkastettu viimeksi 1.12.2017</small>
+            <br/>
+            <small class="text-muted">Tarha: Mökkimetsän hunajatarha</small>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card border-warning">
+
+        <img class="card-img-top" src="{{base_path}}/assets/images/icon.png" alt="Hive image cap">
+
+        <div class="card-body">
+          <h4 class="card-title">Mökkimetsän hunajapesä nro 2</h4>
+          <p class="card-text">Tämä on se lähimpänä rantaa oleva.</p>
+
+          <a href="#" class="btn btn-warning">Pesän tiedot</a>
+          <a href="#" class="btn btn-info">Tarkasta pesä</a>
+
+        </div>
+
+        <div class="card-footer">
+          <p>
+            <small class="text-muted">Pesä tarkastettu viimeksi 10.12.2017</small>
+            <br/>
+            <small class="text-muted">Tarha: Mökkimetsän hunajatarha</small>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+{% endblock %}

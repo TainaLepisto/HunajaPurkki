@@ -1,0 +1,36 @@
+{% extends "static/base_static.html" %}
+{% block content %}
+
+  <h1>Tarkastuslomakkeet</h1>
+
+  <a href="#" class="btn btn-success">Luo uusi tarkastuslomake</a>
+
+  <h3>Olemassa olevat tarkastuslomakkeet</h3>
+  <table class="table table-striped table-bordered">
+    <tbody>
+      <tr>
+        <td>Kevään tarkastus</td>
+        <td><a href="#" class="btn btn-danger">Poista</a></td>
+        <td><a href="#" class="btn btn-warning">Muokkaa</a></td>
+      </tr>
+      <tr>
+        <td>Syystarkastus</td>
+        <td><a href="#" class="btn btn-danger">Poista</a></td>
+        <td><a href="#" class="btn btn-warning">Muokkaa</a></td>
+      </tr>
+      <tr>
+        <td>Punkkitilanne</td>
+        <td><a href="#" class="btn btn-danger">Poista</a></td>
+        <td><a href="#" class="btn btn-warning">Muokkaa</a></td>
+      </tr>
+      <tr>
+        <td>Hunajasadon keräys</td>
+        <td><a href="#" class="btn btn-danger">Poista</a></td>
+        <td><a href="#" class="btn btn-warning">Muokkaa</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+{% endblock %}

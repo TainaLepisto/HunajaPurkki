@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% import "macros/buttons.html" as buttons %}
+
+
+  {% if message %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+  {% endif %}
+
+<div class="container">
+  <div class="row ">
+
+    <div class="col-sm-6">
+
+      <h1>{{apiary.name}}</h1>
+
+      <p>
+        {{apiary.comments}}
+      </p>
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th>Tarha</th>
+            <td>
+              {% if apiary.hiveName %}
+                <a href="{{base_path}}/hive/{{apiary.hiveID}}" class="btn btn-outline-dark">
+                  {{apiary.hiveName}}
+                </a>
+              {% else %}
+                Ei liitettyä pesää
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>Emo</th>
+            <td>
+              {% if apiary.queenName %}
+                <a href="{{base_path}}/queen/{{apiary.queenID}}" class="btn btn-outline-dark">{{apiary.queenName}}</a>
+              {% else %}
+                Ei liitettyä emoa
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>Sijainti</th>
+            <td>
+              {% if apiary.location %}
+                <a href="http://www.google.com/maps/place/{{apiary.location}}" class="btn btn-outline-dark" target="_blank">{{apiary.location}}</a>
+              {% else %}
+                Ei sijaintitietoja
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+
+        {{buttons.destroy_button("#{base_path}/apiary/#{apiary.apiaryID}/remove")}}
+
+        <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/edit" class="btn btn-warning">Muokkaa</a>
+        <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
+      </p>
+
+    </div>
+
+    {% if apiary.picture %}
+    <div class="col-sm-4">
+         <img src="{{apiary.picture}}" class="img-fluid img-thumbnail">
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+
+{% if inspections %}
+    <h2>Pesään tehdyt tarkastukset:</h2>
+
+    {% for inspection in inspections %}
+
+    <h3>Tarkastuspäivä 1.12.2017</h3>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Tarkastustoimi</th>
+            <th>Tulos</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Emo nähty</td>
+            <td>Kyllä</td>
+          </tr>
+          <tr>
+            <td>Ruokavarat</td>
+            <td>5 kg</td>
+          </tr>
+          <tr>
+            <td>Lisätty hunajalaatikko </td>
+            <td>Kyllä</td>
+          </tr>
+          <tr>
+            <td>Punkkeja pohjalla</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+      </p>
+
+    {% endfor %}
+
+{% endif %}
+
+
+
+{% endblock %}

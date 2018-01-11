@@ -173,6 +173,16 @@
            $query->execute(array('id' => $this->apiaryID));
          }
 
+        public function validateHive(){
+          if ($this->$hiveID == '-1'){
+            $this->$hiveID = '';
+          }
+        }
+        public function validateQueen(){
+          if ($this->$queenID == '-1'){
+            $this->$queenID = '';
+          }
+        }
 
 
 }

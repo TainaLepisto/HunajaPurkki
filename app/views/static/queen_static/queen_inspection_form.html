@@ -1,0 +1,65 @@
+{% extends "static/base_static.html" %}
+{% block content %}
+
+  <h1>Lisää tarkastus emolle: Sininen pörröpää</h1>
+
+  <form>
+
+</br></br>
+
+    <div class="form-group">
+        <label>Tarkastuspäivä</label>
+        <input class="form-control" type="date" value="2017-12-31" min="2015-01-01" max="2020-12-31">
+    </div>
+
+</br></br>
+
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="">
+          Emo nähty
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="selectSting">
+        Säyseys / lauhkeus
+      </label>
+      <select class="form-control" id="selectSting">
+        <option>piikikäs</option>
+        <option>hoidettavissa</option>
+        <option>säyseä</option>
+        <option>erittäin säyseä</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea class="form-control"></textarea>
+    </div>
+
+</br></br>
+
+    <div class="form-group">
+        <label>Milloin muistutetaan seuraavasta tarkastuksesta?</label>
+        <input class="form-control" type="date" value="2018-02-01" min="2015-01-01" max="2020-12-31">
+    </div>
+
+    <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+            Älä tee muistutusta uudesta tarkastuksesta
+        </label>
+      </div>
+
+</br></br>
+
+    <div class="form-group">
+      <a href="#" class="btn btn-warning">Peruuta ja siirry emon tietoihin</a>
+      <button type="submit" class="btn btn-success">Tallenna tarkastus</button>
+    </div>
+
+
+  </form>
+
+{% endblock %}
