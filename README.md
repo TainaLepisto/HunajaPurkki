@@ -119,4 +119,5 @@ Siinä sovellus jaetaan kolmeen osaan:
 - [x] Lisää dokumentaatioosi
   - [x] järjestelmän-yleisrakenne-osio
   - [x] käyttöliittymän ja järjestelmän komponentteja kuvaava kaavio.
+- [x] Kirjoita [koodikatselmointi](https://github.com/Samuel0c/Tsoha-Bootstrap/issues/2)
 - [x] Pushaa kaikki muutokset
