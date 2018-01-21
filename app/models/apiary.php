@@ -24,22 +24,16 @@
               ELSE ''
             END AS comments,
             ai.lastinspected,
-            h.hivename
-          FROM (
-            SELECT *
-            FROM apiary
-            WHERE beekeeperid = :beekeeperid
-            ) AS a
+            h.name AS hivename
+          FROM apiary AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
             FROM apiaryinspection
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
-          LEFT JOIN (
-            SELECT hiveid, name AS hivename
-            FROM hive
-            ) AS h
+          AND a.beekeeperid = :beekeeperid
+          LEFT JOIN hive AS h
           on a.hiveid = h.hiveid
         ");
         $query->execute(array('beekeeperid' => $_SESSION['user']));
@@ -68,30 +62,28 @@
 
       public static function find($id){
          $query = DB::connection()->prepare('
-           SELECT a.*, ai.lastinspected, q.queenname, h.hivename
-           FROM (
-             SELECT * FROM apiary
-             WHERE apiaryid = :id) AS a
+           SELECT
+              a.*,
+              ai.lastinspected,
+              q.name AS queenname,
+              h.name AS hivename
+           FROM apiary AS a
            LEFT JOIN (
-             SELECT apiaryid, max(inspectionDate) AS lastinspected
-             FROM apiaryinspection
-             WHERE apiaryid = :id
-             GROUP BY apiaryid
-             ) AS ai
-           ON a.apiaryid = ai.apiaryid
-           LEFT JOIN (
-             SELECT queenid, name AS queenname
-             FROM queen
-             ) AS q
-           ON a.queenid = q.queenid
-           LEFT JOIN (
-             SELECT hiveid, name AS hivename
-             FROM hive
-             ) AS h
-           on a.hiveid = h.hiveid
+                 SELECT apiaryid, max(inspectionDate) AS lastinspected
+                 FROM apiaryinspection
+                 WHERE apiaryid = :id
+                 GROUP BY apiaryid
+                 ) AS ai
+              ON a.apiaryid = ai.apiaryid
+              AND a.apiaryid = :id
+              AND a.beekeeperid = :beekeeperid
+           LEFT JOIN queen AS q
+              ON a.queenid = q.queenid
+           LEFT JOIN hive AS h
+              on a.hiveid = h.hiveid
            LIMIT 1
          ');
-         $query->execute(array('id' => $id));
+         $query->execute(array('id' => $id, 'beekeeperid' => $_SESSION['user']));
          $row = $query->fetch();
 
          if($row){
@@ -119,18 +111,20 @@
 
       public static function apiarysOfHive($id){
         $query = DB::connection()->prepare('
-          SELECT a.*, ai.lastinspected
-          FROM (
-            SELECT * FROM apiary
-            WHERE hiveid = :id) AS a
+          SELECT
+              a.*,
+              ai.lastinspected
+          FROM apiary AS a
           LEFT JOIN (
             SELECT apiaryid, max(inspectionDate) AS lastinspected
             FROM apiaryinspection
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
+          AND a.hiveid = :id
+          AND a.beekeeperid = :beekeeperid
         ');
-        $query->execute(array('id' => $id));
+        $query->execute(array('id' => $id,'beekeeperid' => $_SESSION['user']));
         $query->execute();
         $rows = $query->fetchAll();
         $apiarys = array();
@@ -148,6 +142,52 @@
         return $apiarys;
       }
 
+      public static function allWithoutQueen(){
+        $query = DB::connection()->prepare('
+          SELECT a.apiaryid, a.name
+          FROM apiary
+          WHERE beekeeperid = :beekeeperid
+            AND queenid IS NULL
+        ');
+        $query->execute(array('beekeeperid' => $_SESSION['user']));
+
+        $query->execute();
+        $rows = $query->fetchAll();
+        $apiarys = array();
+
+        foreach($rows as $row){
+          $apiarys[] = new Apiary(array(
+            'apiaryID' => $row['apiaryid'],
+            'name' => $row['name']
+          ));
+        }
+
+        return $apiarys;
+      }
+
+      public static function allWithoutQueenAndOne($id){
+        $query = DB::connection()->prepare('
+          SELECT a.apiaryid, a.name
+          FROM apiary
+          WHERE beekeeperid = :beekeeperid
+            AND (queenid IS NULL OR
+                queenid = :id )
+        ');
+        $query->execute(array('beekeeperid' => $_SESSION['user'], 'id' => $id));
+
+        $query->execute();
+        $rows = $query->fetchAll();
+        $apiarys = array();
+
+        foreach($rows as $row){
+          $apiarys[] = new Apiary(array(
+            'apiaryID' => $row['apiaryid'],
+            'name' => $row['name']
+          ));
+        }
+
+        return $apiarys;
+      }
 
       public function save(){
           $query = DB::connection()->prepare('INSERT INTO apiary (beekeeperid, hiveid, queenid, name, picture, location, comments) VALUES (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
@@ -172,12 +212,12 @@
 
         public function validateHiveForDB(){
           if ($this->hiveID == '-1'){
-            $this->hiveID = 'null';
+            $this->hiveID = NULL ;
           }
         }
         public function validateQueenForDB(){
           if ($this->queenID == '-1'){
-            $this->queenID = 'null';
+            $this->queenID = NULL ;
           }
         }
         public function validateHiveForView(){

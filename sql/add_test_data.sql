@@ -19,8 +19,20 @@ Mehiläistarhaus ei rajoitu pelkästään maaseudulle. Myös kaupunkiympäristö
 Hunajaisia aikoja mehiläistesi parissa!')
 ,
 (1, 'Mökkimetsän hunajatarha','https://i.imgur.com/3isduC8.jpg','40.741895,-73.989308','Laukaan mökkimetsissä olevat pesät.')
+,
+(2,'Naapurin tarha','','','tätä ei pitäisi näkyä testikäyttäjälle')
 ;
 
+-- Queen taulun testidata
+INSERT INTO queen
+(beekeeperid, name, picture,color, comments)
+VALUES
+(1, 'Sininen pörröpää','https://peda.net/oppimateriaalit/e-oppi/verkkokauppa/yl%C3%A4koulu/poistuneet-tuotteet/metsien-biologia2/6ijpmeo/kuvamappi/hy%C3%B6nteiset/kuvamappi/hy%C3%B6nteiset/mehil%C3%A4inen2:file/download/fd7e8a941c89a69d03cc445a06180f90c775e0e0/hyonteiset_mehilainen_shutterstock_93621823.jpg','sininen','Suhteellisen lempeä kuningatar ja hyvin tuottaa hunajaa.')
+,
+(1, 'Äkäinen punainen','https://peda.net/jokioinen/perusopetus/paanan-koulu/luokat-ja-opettajat/pr1-tma/ebiologia-8/e8n/6ijpmeo/pop/si:file/download/3b20f716a3083afd9d83db024d045ae6c4cf6f35/shutterstock_375476722_mehilainen_%20irin-k.jpg','punainen','Muista suojautua kunnolla, tämä pistää.')
+,
+(2,'Naapurin kuningatar','','','tätä ei pitäisi näkyä testikäyttäjälle')
+;
 
 -- Apiary taulun testidata
 INSERT INTO apiary
@@ -29,13 +41,27 @@ VALUES
 (1, 1, 'Mökkimetsän hunajapesä nro 1','http://www.hunaja.fi/wp-content/uploads/2013/11/ML_langstroth.jpg','40.741895,-73.989308','Tämä on se lähimpänä mökkiä oleva.')
 ,
 (1, 1, 'Mökkimetsän hunajapesä nro 2','http://m.paratiisintaimitarha.fi/tuotekuvat/900x600/WG311.jpg','40.741895,-73.989308','Tämä on se rannan puoleinen.')
+,
+(2,3,'Naapurin pesä','','','tätä ei pitäisi näkyä testikäyttäjälle')
+;
+
+INSERT INTO apiary
+(beekeeperid, queenid,name,comments)
+VALUES
+(1,1,'Pesä jossa on kuningatar','ei pitäisi näkyä uuden emon valintalistassa')
 ;
 
 
-INSERT INTO queen
-(beekeeperid, name, picture,color, comments)
+INSERT INTO reminder
+(beekeeperid,title,reminderdate,comments )
 VALUES
-(1, 'Sininen pörröpää','https://peda.net/oppimateriaalit/e-oppi/verkkokauppa/yl%C3%A4koulu/poistuneet-tuotteet/metsien-biologia2/6ijpmeo/kuvamappi/hy%C3%B6nteiset/kuvamappi/hy%C3%B6nteiset/mehil%C3%A4inen2:file/download/fd7e8a941c89a69d03cc445a06180f90c775e0e0/hyonteiset_mehilainen_shutterstock_93621823.jpg','sininen','Suhteellisen lempeä kuningatar ja hyvin tuottaa hunajaa.')
+(1,'Muistutus kahdelle pesälle',to_date('2018-02-01', 'YYYY-MM-DD'),'Muista tehdä kevättarkastus')
 ,
-(1, 'Äkäinen punainen','https://peda.net/jokioinen/perusopetus/paanan-koulu/luokat-ja-opettajat/pr1-tma/ebiologia-8/e8n/6ijpmeo/pop/si:file/download/3b20f716a3083afd9d83db024d045ae6c4cf6f35/shutterstock_375476722_mehilainen_%20irin-k.jpg','punainen','Muista suojautua kunnolla, tämä pistää.')
+(1,'Muistutus yhdelle pesälle',to_date('2018-03-01', 'YYYY-MM-DD'),'Muista tehdä kevättarkastus')
+;
+
+INSERT INTO linkreminderapiary
+(reminderid,apiaryid )
+VALUES
+(1,1),(1,2),(2,1)
 ;

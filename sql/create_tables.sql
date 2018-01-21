@@ -39,7 +39,6 @@ CREATE TABLE apiary(
 CREATE TABLE reminder(
   reminderid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
-  apiaryid INTEGER REFERENCES apiary(apiaryid),
   title VARCHAR(100) NOT NULL,
   reminderdate DATE,
   comments TEXT
@@ -51,13 +50,13 @@ CREATE TABLE linkreminderapiary(
   apiaryid INTEGER REFERENCES apiary(apiaryid)
 );
 
-CREATE TABLE inspectionheader(
+CREATE TABLE inspectionformheader(
   inspectionheaderid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
   title VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE inspectionfield(
+CREATE TABLE inspectionformfield(
   inspectionfieldid SERIAL PRIMARY KEY,
   inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
   fieldname VARCHAR(100),
@@ -67,24 +66,15 @@ CREATE TABLE inspectionfield(
   sortOrder INTEGER
 );
 
-CREATE TABLE apiaryinspection(
+CREATE TABLE inspectiondone(
   apiaryinspectionid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
   apiaryid INTEGER REFERENCES apiary(apiaryid),
+  queenid INTEGER REFERENCES queen(queenid),
+  targettype VARCHAR(20),
   inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
   inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
   inspectionDate DATE,
-  comments TEXT,
-  value VARCHAR(200)
-);
-
-CREATE TABLE queeninspection(
-  queeninspectionid SERIAL PRIMARY KEY,
-  beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
-  queenid INTEGER REFERENCES queen(queenid),
-  inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
-  inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
-  inspectiondate DATE,
   comments TEXT,
   value VARCHAR(200)
 );

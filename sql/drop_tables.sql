@@ -1,9 +1,8 @@
 -- Lisää DROP TABLE lauseet tähän tiedostoon
 
-DROP TABLE IF EXISTS queeninspection CASCADE;
-DROP TABLE IF EXISTS apiaryinspection CASCADE;
-DROP TABLE IF EXISTS inspectionfield CASCADE;
-DROP TABLE IF EXISTS inspectionheader CASCADE;
+DROP TABLE IF EXISTS inspectiondone CASCADE;
+DROP TABLE IF EXISTS inspectionformfield CASCADE;
+DROP TABLE IF EXISTS inspectionformheader CASCADE;
 DROP TABLE IF EXISTS linkreminderapiary CASCADE;
 DROP TABLE IF EXISTS reminder CASCADE;
 DROP TABLE IF EXISTS apiary CASCADE;

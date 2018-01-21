@@ -131,20 +131,32 @@ function check_need_for_login(){
     QueenController::create();
   });
 
-  $routes->get('/queen/1', 'check_logged_in', function() {
-    QueenController::show();
+  $routes->post('/queen', 'check_logged_in', function(){
+    QueenController::saveNew();
   });
 
-  $routes->get('/queen/1/edit', 'check_logged_in', function() {
-    QueenController::edit();
+  $routes->get('/queen/:id', 'check_logged_in', function($id) {
+    QueenController::show($id);
   });
 
-  $routes->get('/queen/1/inspection', 'check_logged_in', function() {
-    QueenController::inspection();
+  $routes->get('/queen/:id/edit', 'check_logged_in', function($id) {
+    QueenController::edit($id);
   });
 
-  $routes->get('/queen/1/inspectionform', 'check_logged_in', function() {
-    QueenController::inspectionForm();
+  $routes->post('/queen/:id/edit', 'check_logged_in', function($id) {
+    QueenController::update($id);
+  });
+
+  $routes->post('/queen/:id/remove', 'check_logged_in', function($id) {
+    QueenController::remove($id);
+  });
+
+  $routes->get('/queen/:id/inspection', 'check_logged_in', function($id) {
+    QueenController::inspection($id);
+  });
+
+  $routes->get('/queen/:id/inspectionform', 'check_logged_in', function($id) {
+    QueenController::inspectionForm($id);
   });
 
 // Tarkastuksiin (inspection) liittyvät reitit
