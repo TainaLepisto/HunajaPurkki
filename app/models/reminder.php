@@ -19,6 +19,7 @@
             r.comments
           FROM reminder AS r
           WHERE r.beekeeperid = :beekeeperid
+          ORDER BY reminderdate DESC
       ");
       $query->execute(array('beekeeperid' => $_SESSION['user']));
 
@@ -26,36 +27,38 @@
       $reminders = array();
 
       foreach($rows as $row){
-        $apiarys[] = array();
-        $query = DB::connection()->prepare("
-            SELECT
-              l.apiaryid,
-              a.name as apiaryname
-            FROM linkreminderapiary AS l
-            LEFT JOIN apiary AS a
-            ON l.reminderid = :reminderid
-            AND l.apiaryid = a.apiaryid
-        ");
-        $query->execute(array('reminderid' => $row['reminderid']));
-        $rows = $query->fetchAll();
-        foreach($rows as $row){
-            $apiarys[] = array(
-              'apiaryID' => $row['apiaryid'],
-              'apiaryName' => $row['apiaryname']);
-        }
-
         $reminders[] = new Reminder(array(
           'reminderID' => $row['reminderid'],
           'beekeeperID' => $row['beekeeperid'],
           'title' => $row['title'],
           'reminderDate' => $row['reminderdate'],
           'comments' => $row['comments'],
-          'linkedApiarys' => $apiarys
+          'linkedApiarys' => array()
         ));
       }
 
-      return $reminders;
+      foreach($reminders as $reminder){
+        $apiarys[] = array();
+        $query2 = DB::connection()->prepare("
+            SELECT
+              l.apiaryid,
+              a.name as apiaryname
+            FROM linkreminderapiary AS l
+            LEFT JOIN apiary AS a
+            ON l.apiaryid = a.apiaryid
+            WHERE l.reminderid = :reminderid
+        ");
+        $query2->execute(array('reminderid' => $reminder->reminderID));
+        $rows2 = $query2->fetchAll();
+        foreach($rows2 as $row){
+            $apiarys[] = array(
+              'apiaryID' => $row['apiaryid'],
+              'apiaryName' => $row['apiaryname']);
+        }
+        $reminder->linkedApiarys[] = $apiarys;
+      }
 
+      return $reminders;
     }
 
 

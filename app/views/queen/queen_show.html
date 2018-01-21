@@ -1,43 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/buttons.html" as buttons %}
+
+{% if message %}
+  <div class="alert alert-success">
+      {{message}}
+  </div>
+{% endif %}
 
   <div class="container">
     <div class="row ">
 
       <div class="col-sm-6">
 
-        <h1>Sininen pörröpää</h1>
+        <h1>{{queen.name}}</h1>
 
         <p>
-          Suhteellisen lempeä kuningatar ja hyvin tuottaa hunajaa.
+          {{queen.comments}}
         </p>
 
         <table class="table table-striped">
           <tbody>
             <tr>
               <td>Emon väri (syntymävuosi)</td>
-              <td>Sininen</td>
+              <td>{{queen.color}}</td>
             </tr>
             <tr>
               <td>Kotipesä</td>
-              <td><a href="{{base_path}}/apiary/1" class="btn btn-outline-dark">Mökkimetsän hunajatarhan pesä nro 1</button></td>
+              <td><a href="{{base_path}}/apiary/{{queen.apiaryID}}" class="btn btn-outline-dark">{{queen.apiaryName}}</button></td>
             </tr>
 
           </tbody>
         </table>
 
         <p>
-          <button class="btn btn-danger">Poista</button>
-          <a href="{{base_path}}/queen/1/edit" class="btn btn-warning">Muokkaa</a>
-          <a href="{{base_path}}/queen/1/inspection" class="btn btn-info">Tarkasta emo</a>
+
+          {% if queen.apiaryID %}
+            <a href="#" disabled class="btn btn-danger">Ei voi poistaa, emo on liitetty pesään</a>
+          {% else %}
+            {{buttons.destroy_button("#{base_path}/queen/#{queen.queenID}/remove")}}
+          {% endif %}
+
+          <a href="{{base_path}}/queen/{{queen.queenID}}/edit" class="btn btn-warning">Muokkaa</a>
+          <a href="{{base_path}}/queen/{{queen.queenID}}/inspection" class="btn btn-info">Tarkasta emo</a>
         </p>
 
       </div>
 
+      {% if queen.picture %}
       <div class="col-sm-4">
-           <img src="{{base_path}}/assets/images/icon.png" >
+           <img src="{{queen.picture}}" class="img-fluid img-thumbnail">
       </div>
+      {% endif %}
 
     </div>
   </div>
@@ -46,6 +61,10 @@
 
 
   <h2>Emolle tehdyt tarkastukset</h2>
+
+  <div class="alert alert-danger">
+    <h2>Tarkastus toiminnallisuuden toteutus on edelleen kesken ja tämä on vain staattinen hahmotelma</h2>
+  </div>
 
   <h3>Tarkastuspäivä 1.12.2017</h3>
     <table class="table table-striped table-bordered">

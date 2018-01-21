@@ -60,7 +60,15 @@
 
       <p>
 
-        {{buttons.destroy_button("#{base_path}/apiary/#{apiary.apiaryID}/remove")}}
+        {% if apiary.queenName %}
+          <a href="#" disabled class="btn btn-danger">Ei voi poistaa, pesässä on emo</a>
+        {% elseif apiary.hiveName %}
+          <a href="#" disabled class="btn btn-danger">Ei voi poistaa, pesä kuuluu tarhaan</a>
+        {% elseif inspections %}
+          <a href="#" disabled class="btn btn-danger">Ei voi poistaa, pesään on tehty tarkastuksia</a>
+        {% else %}
+          {{buttons.destroy_button("#{base_path}/apiary/#{apiary.apiaryID}/remove")}}
+        {% endif %}
 
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/edit" class="btn btn-warning">Muokkaa</a>
         <a href="{{base_path}}/apiary/{{apiary.apiaryID}}/inspection" class="btn btn-info">Tarkasta pesä</a>
@@ -78,10 +86,11 @@
 </div>
 
 
-{% if inspections %}
     <h2>Pesään tehdyt tarkastukset:</h2>
 
-    {% for inspection in inspections %}
+    <div class="alert alert-danger">
+      <h2>Tarkastus toiminnallisuuden toteutus on edelleen kesken ja tämä on vain staattinen hahmotelma</h2>
+    </div>
 
     <h3>Tarkastuspäivä 1.12.2017</h3>
       <table class="table table-striped table-bordered">
@@ -115,10 +124,37 @@
         Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
       </p>
 
-    {% endfor %}
+      <h3>Tarkastuspäivä 12.11.2017</h3>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Tarkastustoimi</th>
+              <th>Tulos</th>
+            </tr>
+          </thead>
 
-{% endif %}
-
+          <tbody>
+            <tr>
+              <td>Emo nähty</td>
+              <td>Kyllä</td>
+            </tr>
+            <tr>
+              <td>Ruokavarat</td>
+              <td>5 kg</td>
+            </tr>
+            <tr>
+              <td>Lisätty hunajalaatikko </td>
+              <td>Kyllä</td>
+            </tr>
+            <tr>
+              <td>Punkkeja pohjalla</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Jotain vapaata tekstiä, joka on kirjoitettu tarkastuksen yhteydessä.
+        </p>
 
 
 {% endblock %}

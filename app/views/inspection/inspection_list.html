@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/buttons.html" as buttons %}
+
+
   <h1>Tarkastuslomakkeet</h1>
 
-  <a href="{{base_path}}/inspection/new" class="btn btn-success">Luo uusi tarkastuslomake</a>
+  <div class="alert alert-danger">
+    <h2>Tämän toiminnallisuuden toteutus on edelleen kesken ja tämä on vain staattinen hahmotelmasivu</h2>
+    {{buttons.return_button()}}
+  </div>
+
+  <a href="#" class="btn btn-success">Luo uusi tarkastuslomake</a>
 
   <h3>Olemassa olevat tarkastuslomakkeet</h3>
   <table class="table table-striped table-bordered">

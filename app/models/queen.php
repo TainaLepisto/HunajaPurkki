@@ -9,7 +9,7 @@
       }
 
       public static function all(){
-        $query = DB::connection()->prepare('
+        $query = DB::connection()->prepare("
           SELECT
               q.beekeeperid,
               q.queenid,
@@ -20,10 +20,10 @@
                 WHEN LENGTH(q.comments) > 0
                 THEN  CONCAT(SUBSTRING(q.comments,0,50),'...')
                 ELSE ''
-              END AS comments,
+              END AS comments
           FROM queen AS q
           WHERE q.beekeeperid = :beekeeperid
-        ');
+        ");
         $query->execute(array('beekeeperid' => $_SESSION['user']));
         $rows = $query->fetchAll();
         $queens = array();
@@ -51,8 +51,8 @@
               a.name AS apiaryname
            FROM queen AS q
            LEFT JOIN apiary AS a
-              ON q.apiaryid = a.apiaryid
-              AND q.queenid = :id
+              ON q.queenid = a.queenid
+           WHERE q.queenid = :id
               AND q.beekeeperid = :beekeeperid
            LIMIT 1
          ');

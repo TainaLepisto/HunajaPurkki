@@ -1,18 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/buttons.html" as buttons %}
+
+<div class="alert alert-danger">
+  <h2>Tämän toiminnallisuuden toteutus on edelleen kesken ja tämä on vain staattinen hahmotelmasivu</h2>
+  {{buttons.return_button()}}
+</div>
+
   <h1>Lisää tarkastus emolle: Sininen pörröpää</h1>
 
   <form>
 
-</br></br>
+    </br></br>
 
     <div class="form-group">
         <label>Tarkastuspäivä</label>
         <input class="form-control" type="date" value="2017-12-31" min="2015-01-01" max="2020-12-31">
     </div>
 
-</br></br>
+    </br></br>
 
     <div class="form-check">
       <label class="form-check-label">
@@ -38,7 +45,7 @@
       <textarea class="form-control"></textarea>
     </div>
 
-</br></br>
+    </br></br>
 
     <div class="form-group">
         <label>Milloin muistutetaan seuraavasta tarkastuksesta?</label>
@@ -52,10 +59,10 @@
         </label>
       </div>
 
-</br></br>
+      </br></br>
 
     <div class="form-group">
-      <a href="javascript:history.go(-1)" class="btn btn-warning">Peruuta ja palaa edelliselle sivulle</a>
+      {{buttons.return_button()}}
       <button type="submit" class="btn btn-success">Tallenna tarkastus</button>
     </div>
 

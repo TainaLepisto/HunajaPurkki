@@ -32,9 +32,9 @@
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
-          AND a.beekeeperid = :beekeeperid
           LEFT JOIN hive AS h
           on a.hiveid = h.hiveid
+          WHERE a.beekeeperid = :beekeeperid
         ");
         $query->execute(array('beekeeperid' => $_SESSION['user']));
 
@@ -75,12 +75,12 @@
                  GROUP BY apiaryid
                  ) AS ai
               ON a.apiaryid = ai.apiaryid
-              AND a.apiaryid = :id
-              AND a.beekeeperid = :beekeeperid
            LEFT JOIN queen AS q
               ON a.queenid = q.queenid
            LEFT JOIN hive AS h
               on a.hiveid = h.hiveid
+           WHERE a.apiaryid = :id
+              AND a.beekeeperid = :beekeeperid
            LIMIT 1
          ');
          $query->execute(array('id' => $id, 'beekeeperid' => $_SESSION['user']));
@@ -124,7 +124,7 @@
             GROUP BY apiaryid
             ) AS ai
           ON a.apiaryid = ai.apiaryid
-          AND a.hiveid = :id
+          WHERE a.hiveid = :id
           AND a.beekeeperid = :beekeeperid
         ');
         $query->execute(array('id' => $id,'beekeeperid' => $_SESSION['user']));
@@ -147,7 +147,7 @@
 
       public static function allWithoutQueen(){
         $query = DB::connection()->prepare('
-          SELECT a.apiaryid, a.name
+          SELECT apiaryid, name
           FROM apiary
           WHERE beekeeperid = :beekeeperid
             AND queenid IS NULL
@@ -170,7 +170,7 @@
 
       public static function allWithoutQueenAndOne($id){
         $query = DB::connection()->prepare('
-          SELECT a.apiaryid, a.name
+          SELECT apiaryid, name
           FROM apiary
           WHERE beekeeperid = :beekeeperid
             AND (queenid IS NULL OR

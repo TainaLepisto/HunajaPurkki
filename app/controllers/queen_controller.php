@@ -9,7 +9,7 @@
 
     public static function create(){
       $apiarys = Apiary::allWithoutQueen();
-      View::make('queen/queen_new.html'), array('apiarys' => $apiarys);
+      View::make('queen/queen_new.html', array('apiarys' => $apiarys));
     }
 
     public static function saveNew(){
@@ -62,7 +62,7 @@
 
        if(count($errors) == 0){
            $queen->update();
-           Redirect::to('/queen/' . $queen->queenyID, array('message' => 'Emon tiedot on päivitetty'));
+           Redirect::to('/queen/' . $queen->queenID, array('message' => 'Emon tiedot on päivitetty'));
        }else{
            $apiarys = Apiary::allWithoutQueenAndOne($id);
            View::make('queen/queen_edit.html', array('errors' => $errors, 'apiarys' => $apiarys, 'queen' => $queen));

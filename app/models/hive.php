@@ -30,7 +30,7 @@
             GROUP BY hiveid
             ) AS a
           ON h.hiveid = a.hiveid
-          AND h.beekeeperid = :beekeeperid
+          WHERE h.beekeeperid = :beekeeperid
         ");
         $query->execute(array('beekeeperid' => $_SESSION['user']));
         $rows = $query->fetchAll();
@@ -64,7 +64,7 @@
                 GROUP BY hiveid
                 ) AS a
             ON h.hiveid = a.hiveid
-            AND h.hiveid = :id
+            WHERE h.hiveid = :id
             AND h.beekeeperid = :beekeeperid
             LIMIT 1
          ');

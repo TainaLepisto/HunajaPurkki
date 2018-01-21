@@ -19,7 +19,8 @@
       } else{
         $user = User::createAccount($params['inputEmail'],$params['inputPassword'], $params['inputBeekeeperName']);
         $_SESSION['user'] = $user->userID;
-        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name));
+        $reminders = Reminder::all();
+        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name, 'reminders' => $reminders));
       }
   }
 
@@ -33,8 +34,8 @@
         View::make('home.html', array('error' => 'Väärä käyttäjätunnus tai salasana', 'username' => $params['inputEmail']));
       }else{
         $_SESSION['user'] = $user->userID;
-
-        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name));
+        $reminders = Reminder::all();
+        Redirect::to('/login', array('message' => 'Tervetuloa ' . $user->name, 'reminders' => $reminders));
       }
     }
 
@@ -44,7 +45,8 @@
     }
 
     public static function login(){
-      View::make('login.html');
+      $reminders = Reminder::all();
+      View::make('login.html', array('reminders' => $reminders));
     }
 
   }

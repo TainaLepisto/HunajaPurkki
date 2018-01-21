@@ -22,14 +22,14 @@
         'title' => $params['title'],
         'reminderdate' => $params['reminderdate'],
         'comments' => $params['comments'],
-        '$selectedApiarys' => array()
+        'linkedApiarys' => array()
       );
 
       // Otetaan talteen kaikki käyttäjän valitsemat pesät
       $selectedApiarys = $params['selectApiarys']
       foreach($selectedApiarys as $selectedApiary){
         // Lisätään kaikkien kategorioiden id:t taulukkoon
-        $attributes['selectedApiarys'][] = $selectedApiarys
+        $attributes['linkedApiarys'][] = $selectedApiary
       }
 
       $reminder = new Reminder(array($attributes));

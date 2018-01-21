@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% import "macros/buttons.html" as buttons %}
+
+
+<div class="alert alert-danger">
+  <h2>Tämän toiminnallisuuden toteutus on edelleen kesken ja tämä on vain staattinen hahmotelmasivu</h2>
+  {{buttons.return_button()}}
+</div>
+
+
   <h1>Lisää tarkastus emolle: Sininen pörröpää</h1>
 
   <form>
@@ -16,9 +25,9 @@
      </div>
 
     <div class="form-group">
-      <a href="javascript:history.go(-1)" class="btn btn-warning">Peruuta ja palaa edelliselle sivulle</a>
+      {{buttons.return_button()}}
 
-      <a href="{{base_path}}/queen/1/inspectionform" class="btn btn-success">Avaa tarkastuslomake</a>
+      <a href="{{base_path}}/queen/{{queen.queenID}}/inspectionform" class="btn btn-success">Avaa tarkastuslomake</a>
       <!-- tämä on sitten oikea nappi kun formi toimii
       <button type="submit" class="btn btn-success">Avaa tarkastuslomake</button>
     -->

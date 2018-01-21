@@ -46,11 +46,16 @@ function check_need_for_login(){
     UserController::login();
   });
 
-
+  // Muistutuksiin (REMINDER) liittyvät reitit
   $routes->get('/reminder/new', 'check_logged_in', function() {
-    HelloWorldController::createReminder();
+    ReminderController::create();
   });
-
+  $routes->post('/reminder/new', 'check_logged_in', function(){
+    ReminderController::saveNew();
+  });
+  $routes->post('/reminder/:id/remove', 'check_logged_in', function($id) {
+    ReminderController::remove($id);
+  });
 
 // Tarhaan (HIVE) liittyvät reitit
   $routes->get('/hive', 'check_logged_in', function() {

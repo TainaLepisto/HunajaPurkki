@@ -18,7 +18,7 @@
   {% endif %}
 
 
-  <form> <!-- method="post" action="{{base_path}}/reminder"> -->
+  <form method="post" action="{{base_path}}/reminder">
 
     <div class="form-group">
       <label>Otsikko</label>
@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <label for="selectApiary">Mihin pesiin muistutus tehdään?</label>
-      <select multiple class="form-control" name="selectApiarys[]" >
+      <select multiple class="form-control" name="selectApiarys" >
         {% for apiary in apiarys %}
           <option value="{{apiary.apiaryID}}"
             {% if attributes.selectApiarys == apiary.apiaryID %}
