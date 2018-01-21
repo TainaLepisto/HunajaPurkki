@@ -66,15 +66,20 @@ CREATE TABLE inspectionformfield(
   sortOrder INTEGER
 );
 
-CREATE TABLE inspectiondone(
-  apiaryinspectionid SERIAL PRIMARY KEY,
+CREATE TABLE inspectiondoneheader(
+  inspectiondoneheaderid SERIAL PRIMARY KEY,
   beekeeperid INTEGER REFERENCES beekeeper(beekeeperid),
   apiaryid INTEGER REFERENCES apiary(apiaryid),
   queenid INTEGER REFERENCES queen(queenid),
+  inspectionheaderid INTEGER REFERENCES inspectionformheader(inspectionheaderid),
   targettype VARCHAR(20),
-  inspectionheaderid INTEGER REFERENCES inspectionheader(inspectionheaderid),
-  inspectionfieldid INTEGER REFERENCES inspectionfield(inspectionfieldid),
   inspectionDate DATE,
-  comments TEXT,
+  comments TEXT
+);
+
+CREATE TABLE inspectiondonefield(
+  inspectiondonefieldid SERIAL PRIMARY KEY,
+  inspectiondoneheaderid INTEGER REFERENCES inspectiondoneheader(inspectiondoneheaderid),
+  inspectionfieldid INTEGER REFERENCES inspectionformfield(inspectionfieldid),
   value VARCHAR(200)
 );
