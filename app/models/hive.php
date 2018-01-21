@@ -30,8 +30,9 @@
             GROUP BY hiveid
             ) AS a
           ON h.hiveid = a.hiveid
+          AND h.beekeeperid = :beekeeperid
         ");
-        $query->execute();
+        $query->execute(array('beekeeperid' => $_SESSION['user']));
         $rows = $query->fetchAll();
         $hives = array();
 
@@ -53,19 +54,21 @@
 
       public static function find($id){
          $query = DB::connection()->prepare('
-            SELECT h.*, a.countapiarys
-              FROM (
-                SELECT * FROM hive
-                WHERE hiveid = :id) AS h
-              LEFT JOIN (
+            SELECT
+                h.*,
+                a.countapiarys
+            FROM hive AS h
+            LEFT JOIN (
                 SELECT hiveid, count(*) as countapiarys
                 FROM apiary
-                WHERE hiveid = :id
                 GROUP BY hiveid
                 ) AS a
-              ON h.hiveid = a.hiveid
-              LIMIT 1');
-         $query->execute(array('id' => $id));
+            ON h.hiveid = a.hiveid
+            AND h.hiveid = :id
+            AND h.beekeeperid = :beekeeperid
+            LIMIT 1
+         ');
+         $query->execute(array('id' => $id, 'beekeeperid' => $_SESSION['user']));
          $row = $query->fetch();
 
          if($row){
@@ -88,9 +91,14 @@
 
        public function save(){
          // MUISTA RETURNING!
-          $query = DB::connection()->prepare('INSERT INTO hive (name, picture, location, comments) VALUES (:name, :picture, :location, :comments) RETURNING hiveid');
+          $query = DB::connection()->prepare('
+              INSERT INTO hive
+              (beekeeperid, name, picture, location, comments)
+              VALUES
+              (:beekeeperid, :name, :picture, :location, :comments)
+              RETURNING hiveid');
           // HUOM! syntaksi $olio->kenttä
-          $query->execute(array('name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+          $query->execute(array('beekeeperid' => $_SESSION['user'], 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
           // napataan talteen olioomme luotu ID tunnus
           $row = $query->fetch();
           $this->hiveID = $row['hiveid'];
@@ -99,14 +107,23 @@
         public function update(){
            $query = DB::connection()->prepare('
               UPDATE hive
-                SET name=:name, picture=:picture, location=:location, comments=:comments
-              WHERE hiveid = :id ');
-           $query->execute(array('id' => $this->hiveID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+                SET
+                    name=:name,
+                    picture=:picture,
+                    location=:location,
+                    comments=:comments
+              WHERE hiveid = :id
+              AND beekeeperid = :beekeeperid
+              ');
+           $query->execute(array('beekeeperid' => $_SESSION['user'], 'id' => $this->hiveID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
          }
 
         public function remove(){
-           $query = DB::connection()->prepare('DELETE FROM hive WHERE hiveid = :id ');
-           $query->execute(array('id' => $this->hiveID));
+           $query = DB::connection()->prepare('
+              DELETE FROM hive
+              WHERE hiveid = :id
+              AND beekeeperid = :beekeeperid ');
+           $query->execute(array('beekeeperid' => $_SESSION['user'], 'id' => $this->hiveID));
          }
 
 

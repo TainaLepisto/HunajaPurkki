@@ -65,8 +65,12 @@
 
       public static function createAccount($email, $password, $name){
         // MUISTA RETURNING!
-         $query = DB::connection()->prepare('INSERT INTO beekeeper (email, password, name)
-                                                VALUES (:email, :password, :name) RETURNING beekeeperid');
+         $query = DB::connection()->prepare('
+            INSERT INTO beekeeper
+            (email, password, name)
+            VALUES
+            (:email, :password, :name) 
+            RETURNING beekeeperid');
          // HUOM! syntaksi $olio->kenttä
          $query->execute(array('email' => $email, 'password' => $password, 'name' => $name));
          // napataan talteen olioomme luotu ID tunnus

@@ -101,6 +101,9 @@
              'lastInspected' => $row['lastinspected']
            ));
 
+           $apiary->validateHiveForView();
+           $apiary->validateQueenForView();
+
            return $apiary;
          }
 
@@ -190,24 +193,45 @@
       }
 
       public function save(){
-          $query = DB::connection()->prepare('INSERT INTO apiary (beekeeperid, hiveid, queenid, name, picture, location, comments) VALUES (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments) RETURNING apiaryid');
-          $query->execute(array('beekeeperid' => $this->beekeeperID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+          $this->validateHiveForDB();
+          $this->validateQueenForDB();
+
+          $query = DB::connection()->prepare('
+              INSERT INTO apiary
+              (beekeeperid, hiveid, queenid, name, picture, location, comments)
+              VALUES
+              (:beekeeperid, :hiveid, :queenid, :name, :picture, :location, :comments)
+              RETURNING apiaryid');
+          $query->execute(array('beekeeperid' => $_SESSION['user'], 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
 
          $row = $query->fetch();
          $this->apiaryID = $row['apiaryid'];
        }
 
        public function update(){
+           $this->validateHiveForDB();
+           $this->validateQueenForDB();
+
            $query = DB::connection()->prepare('
                UPDATE apiary
-                 SET hiveid=:hiveid, queenid=:queenid, name=:name, picture=:picture, location=:location, comments=:comments
-               WHERE apiaryid = :id ');
-           $query->execute(array('id' => $this->apiaryID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
+                 SET
+                    hiveid=:hiveid,
+                    queenid=:queenid,
+                    name=:name,
+                    picture=:picture,
+                    location=:location,
+                    comments=:comments
+               WHERE apiaryid = :id
+               AND beekeeperid = :beekeeperid ');
+           $query->execute(array('beekeeperid' => $_SESSION['user'], 'id' => $this->apiaryID, 'hiveid' => $this->hiveID, 'queenid' => $this->queenID, 'name' => $this->name, 'picture' => $this->picture, 'location' => $this->location, 'comments' => $this->comments));
         }
 
         public function remove(){
-           $query = DB::connection()->prepare('DELETE FROM apiary WHERE apiaryid = :id ');
-           $query->execute(array('id' => $this->apiaryID));
+           $query = DB::connection()->prepare('
+              DELETE FROM apiary
+              WHERE apiaryid = :id
+              AND beekeeperid = :beekeeperid ');
+           $query->execute(array('id' => $this->apiaryID, 'beekeeperid' => $_SESSION['user']));
          }
 
         public function validateHiveForDB(){
