@@ -71,6 +71,11 @@
              'comments' => $row['comments']
            ));
 
+           if(!$queen->apiaryID){
+              $queen->apiaryID=-1;
+              $queen->apiaryName='Ei pesää';
+           }
+
            return $queen;
          }
 
@@ -95,6 +100,23 @@
 
          $row = $query->fetch();
          $this->queenID = $row['queenid'];
+
+         if($this->apiaryID <> -1){
+           $query = DB::connection()->prepare('
+               UPDATE apiary
+               SET queenid=:queenid
+               WHERE apiaryid = :apiaryid
+               AND beekeeperid = :beekeeperid');
+           $query->execute(array(
+               'beekeeperid' => $_SESSION['user'],
+               'queenid' => $this->queenID,
+               'apiaryid' => $this->apiaryID
+             ));
+
+         } else {
+             $this->apiaryName='Ei pesää';
+         }
+
        }
 
        public function update(){
@@ -105,25 +127,60 @@
                     picture=:picture,
                     color=:color,
                     comments=:comments
-               WHERE queenid = :id
+               WHERE queenid = :queenid
                AND beekeeperid = :beekeeperid ');
            $query->execute(array(
              'beekeeperid' => $_SESSION['user'],
-             'id' => $this->apiaryID,
+             'queenid' => $this->queenID,
              'name' => $this->name,
              'picture' => $this->picture,
              'color' => $this->color,
              'comments' => $this->comments
            ));
+
+           if($this->apiaryID=-1){
+               $query = DB::connection()->prepare('
+                 SELECT apiaryid
+                 FROM apiary
+                 WHERE beekeeperid = :beekeeperid
+                   AND queenid = :queenid
+               ');
+               $query->execute(array('beekeeperid' => $_SESSION['user'], 'queenid' => $this->queenID));
+               $query->execute();
+               $row = $query->fetch();
+
+               if($row){
+               $query = DB::connection()->prepare('
+                   UPDATE apiary
+                   SET queenid=NULL
+                   WHERE apiaryid = :apiaryid
+                   AND beekeeperid = :beekeeperid');
+               $query->execute(array(
+                   'beekeeperid' => $_SESSION['user'],
+                   'apiaryid' => $row['apiaryid']
+                 ));
+               }
+            }else{
+             $query = DB::connection()->prepare('
+                 UPDATE apiary
+                 SET queenid=:queenid
+                 WHERE apiaryid = :apiaryid
+                 AND beekeeperid = :beekeeperid');
+             $query->execute(array(
+                 'beekeeperid' => $_SESSION['user'],
+                 'queenid' => $this->queenID,
+                 'apiaryid' => $this->apiaryID
+               ));
+            }
         }
 
         public function remove(){
            $query = DB::connection()->prepare('
               DELETE FROM queen
-              WHERE queenid = :id
+              WHERE queenid = :queenid
               AND beekeeperid = :beekeeperid ');
            $query->execute(array(
-             'id' => $this->queenID,
+             'queenid' => $this->queenID,
              'beekeeperid' => $_SESSION['user']));
          }
 

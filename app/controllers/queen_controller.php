@@ -20,7 +20,8 @@
         'name' => $params['name'],
         'picture' => $params['picture'],
         'color' => $params['color'],
-        'comments' => $params['comments']
+        'comments' => $params['comments'],
+        'apiaryID' => $params['selectApiary']
       ));
 
       // tarkastetaan onko arvot sallittuja
@@ -54,7 +55,8 @@
          'name' => $params['name'],
          'picture' => $params['picture'],
          'color' => $params['color'],
-         'comments' => $params['comments']
+         'comments' => $params['comments'],
+         'apiaryID' => $params['selectApiary']
        ));
 
        // tarkastetaan onko arvot sallittuja
